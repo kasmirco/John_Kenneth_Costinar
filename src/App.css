@@ -1,0 +1,36 @@
+/* Custom cursor base */
+#custom-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 80px;
+  height: 80px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(8px);
+  border: 1.5px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  transition: transform 0.15s ease, background 0.2s ease, width 0.2s, height 0.2s;
+}
+
+/* Click state */
+#custom-cursor.clicking {
+  background: rgba(255, 255, 255, 0.3);
+  transform: translate(-50%, -50%) scale(0.9);
+}
+
+/* Scroll state */
+#custom-cursor.scrolling {
+  background: linear-gradient(145deg, #aee, #eef);
+  width: 100px;
+  height: 100px;
+}
+
+/* Hover on link */
+a:hover ~ #custom-cursor,
+button:hover ~ #custom-cursor {
+  background: rgba(255, 255, 255, 0.2);
+  border: 2px solid #0ff;
+}
