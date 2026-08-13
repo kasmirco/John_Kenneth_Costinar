@@ -1,0 +1,1395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Costinar - Portfolio</title>
+<link rel="icon" href="../IMG/Night_Me.jpg" />
+<link rel="stylesheet" href="chatbot.css">
+<link rel="stylesheet" href="style.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body class="light">
+
+<!-- MAIN CONTAINER -->
+<div class="container">
+
+    <!-- HEADER -->
+<!-- HEADER -->
+<header class="header">
+
+    <div class="left">
+
+        <img 
+            src="../Frame/Frame 1 (START) - DAY.jpg" 
+            id="profilePhoto" 
+            class="profile-img"
+        >
+
+        <div class="info">
+
+            <div class="name-row">
+                <h1>John Kenneth Costinar</h1>
+                <i class="fa-solid fa-circle-check verified"></i>
+            </div>
+
+            <p class="location">
+                <i class="fa-solid fa-location-dot"></i>
+                Taguig City, Philippines
+            </p>
+
+            <p class="role">
+                Aspiring Software Engineer
+            </p>
+
+            <div class="actions">
+
+<button
+    type="button"
+    class="primary"
+    id="openScheduleModal"
+>
+    <i class="fa-regular fa-calendar"></i>
+    <span>Schedule a Call</span>
+</button>
+
+<div class="divider"></div>
+
+
+<button
+    type="button"
+    class="ghost"
+    id="openEmailModal"
+    aria-label="Send me an email"
+>
+    <i class="bi bi-envelope"></i>
+    <span>Send Email</span>
+</button>
+
+                <div class="divider"></div>
+
+<button
+    type="button"
+    class="ghost"
+    onclick="window.location.href='blog.html'"
+>
+    <i class="bi bi-journal-text"></i>
+    <span>Read my blog</span>
+</button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="right">
+
+        <!-- THEME SWITCH -->
+        <div class="theme-switch" id="themeToggle">
+            <div class="switch-track">
+                <div class="switch-thumb">
+                    <i id="themeIcon" class="fa-solid fa-sun"></i>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- RESUME -->
+        <a href="John_Kenneth_Costinar_Resume.pdf" class="resume">
+            Resume
+            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+        </a>
+
+
+ <!-- ==========================================
+     SCHOOL JOURNEY
+========================================== -->
+
+<div class="badge">
+
+    <!-- School Journey Title -->
+<span class="school-journey-label">
+    <i class="fas fa-school"></i>
+    School Journey
+</span>
+
+    <!-- Divider -->
+    <span class="school-journey-divider"></span>
+
+    <!-- Arrow -->
+    <span
+        id="schoolJourneyToggle"
+        class="school-journey-toggle"
+        role="button"
+        tabindex="0"
+        aria-label="Toggle school journey"
+        aria-expanded="false"
+    >
+        <i class="fa-solid fa-chevron-down"></i>
+    </span>
+
+
+    <!-- ======================================
+         SCHOOL LIST
+    ======================================= -->
+
+    <div
+        id="schoolJourneyList"
+        class="school-journey-list"
+    >
+
+    <span id="schoolToggle" class="school-toggle">
+        <i class="bi bi-chevron-down"></i>
+    </span>
+        <!-- School 1 -->
+        <div>
+            <i class="fa-solid fa-graduation-cap"></i>
+
+            <span>
+                STI College Global City
+            </span>
+        </div>
+
+
+        <!-- School 2 -->
+        <div>
+            <i class="fa-solid fa-school"></i>
+
+            <span>
+                Your Previous School
+            </span>
+        </div>
+
+
+        <!-- School 3 -->
+        <div>
+            <i class="fa-solid fa-laptop-code"></i>
+
+            <span>
+                Information Technology
+            </span>
+        </div>
+
+    </div>
+
+    </div>
+
+</header>
+
+
+
+
+<!-- =====================================================
+     SEND EMAIL MODAL
+===================================================== -->
+
+<div
+    class="email-modal-overlay"
+    id="emailModal"
+    aria-hidden="true"
+>
+
+    <div
+        class="email-modal"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="emailModalTitle"
+    >
+
+        <!-- HEADER -->
+        <div class="email-modal-header">
+
+            <div class="email-modal-heading">
+
+                <span class="email-modal-label">
+                    GET IN TOUCH
+                </span>
+
+                <h2 id="emailModalTitle">
+                    Send Me a Message
+                </h2>
+
+                <p>
+                    Have a question, project, or opportunity?
+                    I'd love to hear from you.
+                </p>
+
+            </div>
+
+            <!-- CLOSE BUTTON -->
+<button
+    type="button"
+    class="email-close"
+    id="closeEmailModal"
+    aria-label="Close email form"
+>
+    <span class="email-x">×</span>
+</button>
+
+        </div>
+
+
+        <!-- FORM -->
+        <form
+            class="email-form"
+            id="emailForm"
+            novalidate
+        >
+
+            <!-- NAME -->
+            <div class="email-field">
+
+                <label for="senderName">
+                    Name
+                </label>
+
+                <input
+                    type="text"
+                    id="senderName"
+                    name="name"
+                    placeholder="Your name"
+                    autocomplete="name"
+                >
+
+                <small class="field-error">
+                    Please enter your name.
+                </small>
+
+            </div>
+
+
+            <!-- EMAIL -->
+            <div class="email-field">
+
+                <label for="senderEmail">
+                    Email
+                </label>
+
+                <input
+                    type="email"
+                    id="senderEmail"
+                    name="email"
+                    placeholder="your@email.com"
+                    autocomplete="email"
+                >
+
+                <small class="field-error">
+                    Please enter a valid email address.
+                </small>
+
+            </div>
+
+
+            <!-- SUBJECT -->
+            <div class="email-field">
+
+                <label for="senderSubject">
+                    Subject
+                </label>
+
+                <input
+                    type="text"
+                    id="senderSubject"
+                    name="subject"
+                    placeholder="What would you like to talk about?"
+                >
+
+                <small class="field-error">
+                    Please enter a subject.
+                </small>
+
+            </div>
+
+
+            <!-- MESSAGE -->
+            <div class="email-field">
+
+                <label for="senderMessage">
+                    Message
+                </label>
+
+                <textarea
+                    id="senderMessage"
+                    name="message"
+                    rows="5"
+                    placeholder="Write your message..."
+                ></textarea>
+
+                <small class="field-error">
+                    Please enter your message.
+                </small>
+
+            </div>
+
+
+            <!-- STATUS -->
+            <div
+                class="email-status"
+                id="emailStatus"
+                role="status"
+                aria-live="polite"
+            ></div>
+
+
+            <!-- ACTIONS -->
+            <div class="email-form-actions">
+
+                <button
+                    type="button"
+                    class="email-cancel"
+                    id="cancelEmail"
+                >
+                    Cancel
+                </button>
+
+                <button
+                    type="submit"
+                    class="email-submit"
+                    id="emailSubmit"
+                >
+
+                    <i class="bi bi-send"></i>
+
+                    <span>
+                        Send Message
+                    </span>
+
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
+
+
+
+<!-- =====================================================
+     SCHEDULE A CALL MODAL
+     ===================================================== -->
+
+<div
+    class="schedule-modal-overlay"
+    id="scheduleModal"
+    aria-hidden="true"
+>
+
+    <div
+        class="schedule-modal"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="scheduleTitle"
+    >
+
+        <!-- =================================================
+             MODAL HEADER
+             ================================================= -->
+
+        <div class="schedule-header">
+
+            <div class="schedule-header-text">
+
+                <span class="schedule-label">
+                    LET'S CONNECT
+                </span>
+
+                <h2 id="scheduleTitle">
+                    Schedule a Call
+                </h2>
+
+                <p>
+                    Choose a convenient time for us to connect.
+                </p>
+
+            </div>
+
+
+            <!-- IMPORTANT:
+                 This uses a text X instead of an icon
+                 so the close button always remains visible.
+            -->
+
+            <button
+                type="button"
+                class="schedule-close"
+                id="closeScheduleModal"
+                aria-label="Close schedule modal"
+            >
+                <span aria-hidden="true">&times;</span>
+            </button>
+
+        </div>
+
+
+        <!-- =================================================
+             PROGRESS
+             ================================================= -->
+
+        <div class="schedule-progress">
+
+            <div
+                class="schedule-progress-step active"
+                data-step="1"
+            >
+                <span>1</span>
+                <small>Time</small>
+            </div>
+
+            <div class="schedule-progress-line"></div>
+
+            <div
+                class="schedule-progress-step"
+                data-step="2"
+            >
+                <span>2</span>
+                <small>Details</small>
+            </div>
+
+            <div class="schedule-progress-line"></div>
+
+            <div
+                class="schedule-progress-step"
+                data-step="3"
+            >
+                <span>3</span>
+                <small>Confirm</small>
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             STEP CONTAINER
+             ================================================= -->
+
+        <div class="schedule-body">
+
+
+            <!-- =================================================
+                 STEP 1 — CHOOSE TIME
+                 ================================================= -->
+
+            <section
+                class="schedule-step active"
+                id="scheduleStep1"
+                data-step-content="1"
+            >
+
+                <div class="schedule-step-heading">
+
+                    <div class="schedule-step-icon">
+                        <i class="fa-regular fa-calendar"></i>
+                    </div>
+
+                    <div>
+
+                        <h3>
+                            Choose a Time
+                        </h3>
+
+                        <p>
+                            Select an available date and time.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- DATE -->
+
+                <div class="schedule-field-group">
+
+                    <label>
+                        Select a date
+                    </label>
+
+                    <div
+                        class="schedule-date-grid"
+                        id="scheduleDateGrid"
+                    >
+                        <!-- JavaScript creates dates -->
+                    </div>
+
+                </div>
+
+
+                <!-- TIME -->
+
+                <div
+                    class="schedule-field-group schedule-time-section"
+                    id="scheduleTimeSection"
+                >
+
+                    <label>
+                        Available times
+                    </label>
+
+                    <div
+                        class="schedule-time-grid"
+                        id="scheduleTimeGrid"
+                    >
+                        <!-- JavaScript creates times -->
+                    </div>
+
+                </div>
+
+
+                <!-- SELECTED -->
+
+                <div
+                    class="schedule-selection"
+                    id="scheduleSelection"
+                >
+
+                    <div class="schedule-selection-icon">
+                        <i class="fa-regular fa-clock"></i>
+                    </div>
+
+                    <div>
+
+                        <span>
+                            Selected
+                        </span>
+
+                        <strong id="selectedDateTime">
+                            Select a date and time
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <div class="schedule-step-actions">
+
+                    <button
+                        type="button"
+                        class="schedule-secondary-btn"
+                        id="scheduleCancelStep1"
+                    >
+                        Cancel
+                    </button>
+
+                    <button
+                        type="button"
+                        class="schedule-next-btn"
+                        id="scheduleNextStep"
+                        disabled
+                    >
+                        <span>
+                            Continue
+                        </span>
+
+                        <span aria-hidden="true">
+                            →
+                        </span>
+                    </button>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 STEP 2 — YOUR DETAILS
+                 ================================================= -->
+
+            <section
+                class="schedule-step"
+                id="scheduleStep2"
+                data-step-content="2"
+            >
+
+                <div class="schedule-step-heading">
+
+                    <div class="schedule-step-icon">
+                        <i class="fa-regular fa-user"></i>
+                    </div>
+
+                    <div>
+
+                        <h3>
+                            Your Details
+                        </h3>
+
+                        <p>
+                            Tell me a little about yourself.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <form
+                    id="scheduleDetailsForm"
+                    novalidate
+                >
+
+                    <div class="schedule-form-grid">
+
+                        <!-- NAME -->
+
+                        <div class="schedule-form-field">
+
+                            <label for="scheduleName">
+                                Name
+                            </label>
+
+                            <input
+                                type="text"
+                                id="scheduleName"
+                                placeholder="Your name"
+                                autocomplete="name"
+                            >
+
+                            <small class="schedule-error">
+                                Please enter your name.
+                            </small>
+
+                        </div>
+
+
+                        <!-- EMAIL -->
+
+                        <div class="schedule-form-field">
+
+                            <label for="scheduleEmail">
+                                Email
+                            </label>
+
+                            <input
+                                type="email"
+                                id="scheduleEmail"
+                                placeholder="your@email.com"
+                                autocomplete="email"
+                            >
+
+                            <small class="schedule-error">
+                                Please enter a valid email.
+                            </small>
+
+                        </div>
+
+
+                        <!-- TOPIC -->
+
+                        <div class="schedule-form-field full">
+
+                            <label for="scheduleTopic">
+                                What would you like to discuss?
+                            </label>
+
+                            <select id="scheduleTopic">
+
+                                <option value="">
+                                    Select a topic
+                                </option>
+
+                                <option value="Project">
+                                    Project
+                                </option>
+
+                                <option value="Collaboration">
+                                    Collaboration
+                                </option>
+
+                                <option value="Freelance">
+                                    Freelance Opportunity
+                                </option>
+
+                                <option value="Career">
+                                    Career Opportunity
+                                </option>
+
+                                <option value="General">
+                                    General Conversation
+                                </option>
+
+                            </select>
+
+                            <small class="schedule-error">
+                                Please select a topic.
+                            </small>
+
+                        </div>
+
+
+                        <!-- MESSAGE -->
+
+                        <div class="schedule-form-field full">
+
+                            <label for="scheduleMessage">
+                                Message
+                                <span>(optional)</span>
+                            </label>
+
+                            <textarea
+                                id="scheduleMessage"
+                                rows="4"
+                                placeholder="Tell me a little about what you'd like to discuss..."
+                            ></textarea>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="schedule-step-actions">
+
+                        <button
+                            type="button"
+                            class="schedule-secondary-btn"
+                            id="scheduleBackStep2"
+                        >
+                            ← Back
+                        </button>
+
+                        <button
+                            type="submit"
+                            class="schedule-next-btn"
+                        >
+                            <span>
+                                Review
+                            </span>
+
+                            <span aria-hidden="true">
+                                →
+                            </span>
+                        </button>
+
+                    </div>
+
+                </form>
+
+            </section>
+
+
+            <!-- =================================================
+                 STEP 3 — CONFIRM
+                 ================================================= -->
+
+            <section
+                class="schedule-step"
+                id="scheduleStep3"
+                data-step-content="3"
+            >
+
+                <div class="schedule-step-heading">
+
+                    <div class="schedule-step-icon">
+                        <i class="fa-regular fa-circle-check"></i>
+                    </div>
+
+                    <div>
+
+                        <h3>
+                            Review Your Booking
+                        </h3>
+
+                        <p>
+                            Make sure everything looks correct.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="schedule-review">
+
+                    <!-- DATE/TIME -->
+
+                    <div class="schedule-review-item">
+
+                        <div class="schedule-review-icon">
+                            <i class="fa-regular fa-calendar"></i>
+                        </div>
+
+                        <div>
+
+                            <span>
+                                Date & Time
+                            </span>
+
+                            <strong id="reviewDateTime">
+                                —
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- NAME -->
+
+                    <div class="schedule-review-item">
+
+                        <div class="schedule-review-icon">
+                            <i class="fa-regular fa-user"></i>
+                        </div>
+
+                        <div>
+
+                            <span>
+                                Name
+                            </span>
+
+                            <strong id="reviewName">
+                                —
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- EMAIL -->
+
+                    <div class="schedule-review-item">
+
+                        <div class="schedule-review-icon">
+                            <i class="fa-regular fa-envelope"></i>
+                        </div>
+
+                        <div>
+
+                            <span>
+                                Email
+                            </span>
+
+                            <strong id="reviewEmail">
+                                —
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- TOPIC -->
+
+                    <div class="schedule-review-item">
+
+                        <div class="schedule-review-icon">
+                            <i class="fa-regular fa-comment"></i>
+                        </div>
+
+                        <div>
+
+                            <span>
+                                Topic
+                            </span>
+
+                            <strong id="reviewTopic">
+                                —
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="schedule-demo-notice">
+
+                    <i class="fa-solid fa-circle-info"></i>
+
+                    <p>
+                        This is a portfolio demonstration.
+                        No real appointment will be created.
+                    </p>
+
+                </div>
+
+
+                <div class="schedule-step-actions">
+
+                    <button
+                        type="button"
+                        class="schedule-secondary-btn"
+                        id="scheduleBackStep3"
+                    >
+                        ← Back
+                    </button>
+
+                    <button
+                        type="button"
+                        class="schedule-confirm-btn"
+                        id="confirmSchedule"
+                    >
+                        <i class="fa-regular fa-circle-check"></i>
+
+                        <span>
+                            Confirm Schedule
+                        </span>
+
+                    </button>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 SUCCESS
+                 ================================================= -->
+
+            <section
+                class="schedule-step schedule-success"
+                id="scheduleSuccess"
+                data-step-content="success"
+            >
+
+                <div class="schedule-success-icon">
+
+                    <i class="fa-solid fa-check"></i>
+
+                </div>
+
+
+                <h3>
+                    Call Scheduled!
+                </h3>
+
+
+                <p>
+                    Thank you, <strong id="successName">there</strong>.
+                    Your demo appointment has been successfully
+                    recorded for this portfolio experience.
+                </p>
+
+
+                <div class="schedule-success-details">
+
+                    <div>
+
+                        <span>
+                            Date & Time
+                        </span>
+
+                        <strong id="successDateTime">
+                            —
+                        </strong>
+
+                    </div>
+
+                    <div>
+
+                        <span>
+                            Topic
+                        </span>
+
+                        <strong id="successTopic">
+                            —
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <button
+                    type="button"
+                    class="schedule-done-btn"
+                    id="scheduleDone"
+                >
+                    Done
+                </button>
+
+            </section>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+    <!-- MAIN GRID -->
+    <div class="main-grid">
+
+        <!-- LEFT SIDE -->
+        <div class="left-content">
+
+            <section class="about">
+                <h2>About</h2>
+
+                <p>
+I'm a Bachelor of Science in Information Technology student with a growing interest in frontend and software development. I enjoy creating responsive, user-friendly websites through personal, academic, and project-based work. I'm continuously improving my skills by exploring new technologies and building projects that allow me to learn through practical experience.                </p>
+
+                <p>
+During my On-the-Job Training (OJT), I gained hands-on experience as part of a development team. I contributed to a Finance Business Tool designed to organize information about government agencies and financial services, giving me an opportunity to apply what I learned in school to a real-world project and understand how development works in a professional environment.                </p>
+
+                <p>
+I'm currently expanding my knowledge in Python, PHP, and Artificial Intelligence while continuing to strengthen my web development skills. My goal is to keep learning, explore different areas of technology, and become a better developer through every project and experience. Outside of development, I'm also a content creator focused on gaming and meme content.                </p>
+            </section>
+
+
+            <section class="tech-v2">
+
+                <div class="tech-v2-header">
+                    <h2>Tech Stack</h2>
+                    <a href="Tech.html" class="tech-v2-view">
+                        View All 
+                        <i class="fa-solid fa-chevron-right"></i>
+                    </a>
+                </div>
+
+                <div class="tech-v2-stack">
+
+                    <div class="tech-v2-category">
+                        <h3>Frontend</h3>
+                        <div class="tech-v2-items">
+                            <span>JavaScript</span>
+                            <span>React</span>
+                            <span>CSS</span>
+                            <span>HTML</span>
+                        </div>
+                    </div>
+
+                    <div class="tech-v2-category">
+                        <h3>Backend</h3>
+                        <div class="tech-v2-items">
+                            <span>C++</span>
+                            <span>Python</span>
+                            <span>PHP</span>
+                            <span>Oracle</span>
+                            <span>MySQL</span>
+                            <span>C#</span>
+                        </div>
+                    </div>
+
+                    <div class="tech-v2-category">
+                        <h3>Tools</h3>
+                        <div class="tech-v2-items">
+                            <span>Figma</span>
+                            <span>Photoshop</span>
+                            <span>Capcut</span>
+                            <span>Canva</span>
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+
+<!-- RECENT PROJECTS -->
+<section class="projects-card">
+
+    <div class="projects-header">
+        <h2>Services</h2>
+
+    </div>
+
+<div class="projects-grid">
+
+    <!-- Service 2 -->
+    <div class="project-item">
+        <h3>Personal Portfolio Websites</h3>
+        <p>Professional portfolio websites that showcase your skills and projects.</p>
+        <span>Personal Branding</span>
+    </div>
+
+    <!-- Service 3 -->
+    <div class="project-item">
+        <h3>Business & Landing Pages</h3>
+        <p>Clean and engaging websites that help businesses grow their online presence.</p>
+        <span>Business Solutions</span>
+    </div>
+
+    <!-- Service 4 -->
+    <div class="project-item">
+        <h3>UI/UX Design</h3>
+        <p>Designing intuitive, user-friendly interfaces with modern design principles.</p>
+        <span>Figma • User Experience</span>
+    </div>
+
+    <!-- Service 5 -->
+    <div class="project-item">
+        <h3>Content Creation</h3>
+        <p>Creating gaming and meme content focused on entertainment, creativity, and engaging online communities.</p>
+        <span>Gaming • Memes • Digital Content</span>
+    </div>
+
+</div>
+
+</section>
+
+
+
+            
+   </div>
+        <!-- RIGHT SIDE -->
+        <div class="right-content">
+
+            <div class="costi-card-container">
+            <a href="Project.html" class="costi-card-link">
+                <div class="costi-card" id="costiCard">
+                    <div class="costi-card-glow"></div>
+
+                    <div class="costi-card-content">
+
+                        <div class="costi-card-icon">›_</div>
+
+                        <p class="costi-card-title">PROJECTS OF COSTI</p>
+                        <p class="costi-card-subtitle">ACCESS CARD</p>
+
+                        <div class="costi-card-spacer"></div>
+
+                        <p class="costi-card-label">FOUNDING MEMBER</p>
+                        <p class="costi-card-name">COSTI</p>
+
+                        <p class="costi-card-role">DEVELOPER</p>
+
+                        <!-- QR CODE -->
+                        <div class="costi-card-qr">
+                            <img src="../IMG/QRcode.png" alt="QR Code">
+                        </div>
+
+                    </div>
+                </div>
+                </div>
+</a>
+
+<!--             <a href="https://your-link-here.com" target="_blank"> -->
+            <!-- Certificate -->
+            <a href="Cert.html" target="_blank">
+                <img src="../IMG/Cert.png" alt="certificate" class="costi-card-image">
+            </a>
+
+
+
+
+    <!-- EXPERIENCE CARD -->
+<section class="experience-card">
+
+    <div class="experience-header">
+        <h2>Experience</h2>
+    </div>
+
+    <div class="experience-list">
+
+        <div class="experience-item active">
+            <span class="dot"></span>
+            <div class="experience-content">
+                <h3>Freelance Frontend Developer</h3>
+                <p>Travel Agency Management System</p>
+            </div>
+            <span class="year">2025</span>
+        </div>
+
+        <div class="experience-item">
+            <span class="dot"></span>
+            <div class="experience-content">
+                <h3>Student Developer</h3>
+                <p>Currently pursuing a degree in Information Technology while building websites and applications to strengthen my skills in web and mobile development.</p>
+            </div>
+            <span class="year">2024</span>
+        </div>
+
+        <div class="experience-item">
+            <span class="dot"></span>
+            <div class="experience-content">
+                <h3>Frontend Developer Intern (OJT)</h3>
+                <p>Developed a Finance Business Tool to improve access to government agencies and financial services.</p>
+            </div>
+            <span class="year">2023</span>
+        </div>
+
+        <div class="experience-item">
+            <span class="dot"></span>
+            <div class="experience-content">
+                <h3>Bachelor of Science in Information Technology</h3>
+                <p>Major in Web and Mobile Application Development • STI College Global City</p>
+            </div>
+            <span class="year">2022</span>
+        </div>
+
+        <div class="experience-item">
+            <span class="dot"></span>
+            <div class="experience-content">
+                <h3>Started My Programming Journey</h3>
+                <p>Built my first program and discovered my passion for software development.</p>
+            </div>
+            <span class="year">2022</span>
+        </div>
+
+    </div>
+
+</section>
+
+</div>
+</div>
+
+
+<!-- FOOTER -->
+    <footer class="footer">
+
+        <div class="footer-top">
+
+            <div class="footer-brand">
+                <h3>John Kenneth Costinar</h3>
+
+                <p>
+                    Aspiring Software Engineer · Content Creator
+                </p>
+            </div>
+
+            <div class="footer-links">
+
+                <a href="https://t.me/KasmirCo">
+                   <i class="fa-brands fa-telegram-plane"></i>
+                    Telegram
+                </a>
+
+                <a href="https://github.com/kasmirco">
+                    <i class="fa-brands fa-github"></i>
+                    GitHub
+                </a>
+
+                <a href="https://www.linkedin.com/in/john-kenneth-costinar-517a89371/">
+                    <i class="fa-brands fa-linkedin-in"></i>
+                    LinkedIn
+                </a>
+
+                <a href="https://www.facebook.com/johnkenneth.costinar.3">
+                    <i class="fa-brands fa-facebook-f"></i>
+                    Facebook
+                </a>
+
+            </div>
+
+        </div>
+
+        <div class="footer-divider"></div>
+
+        <div class="footer-bottom">
+
+            <span>
+                © 2026 John Kenneth Costinar. All rights reserved.
+            </span>
+
+            <span>
+                Designed & Developed by Costi
+            </span>
+
+        </div>
+
+    </footer>
+
+<!-- ==========================================
+     FLOATING CHAT BUTTON
+========================================== -->
+<div class="chat" id="openChat">
+    <i class="fa-regular fa-comment-dots icon"></i>
+    <span>Chat with Costi</span>
+</div>
+
+
+
+<!-- ==========================================
+     CHATBOT
+========================================== -->
+
+<div class="chatbot" id="chatbot">
+
+    <!-- Header -->
+
+    <div class="chatbot-header">
+
+        <div class="chatbot-profile">
+
+<div class="chatbot-avatar">
+    <img src="../src/assets/ai formal - me (1x1).png" alt="Costi AI">
+</div>
+
+            <div class="chatbot-info">
+
+                <h3>Costi AI</h3>
+
+                <span class="status">
+                    <span class="status-dot"></span>
+                    Online
+                </span>
+
+            </div>
+
+        </div>
+
+        <button id="closeChat" aria-label="Close Chat">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+
+    </div>
+
+    <!-- Messages -->
+
+    <div class="chatbot-body" id="chatBody">
+
+        <!-- Welcome message is inserted by JavaScript -->
+
+    </div>
+
+    <!-- Suggested Questions -->
+
+    <div class="chat-suggestions">
+
+        <button class="suggestion-btn">
+            👋 Who is Costi?
+        </button>
+
+        <button class="suggestion-btn">
+            💻 Projects
+        </button>
+
+        <button class="suggestion-btn">
+            🛠 Skills
+        </button>
+
+        <button class="suggestion-btn">
+            📩 Contact
+        </button>
+
+    </div>
+
+    <!-- Footer -->
+
+    <div class="chatbot-footer">
+
+        <input
+            id="userInput"
+            type="text"
+            placeholder="Ask me anything..."
+            autocomplete="off"
+        >
+
+        <button id="sendBtn">
+
+            <i class="fa-solid fa-paper-plane"></i>
+
+        </button>
+
+    </div>
+
+</div>
+
+<script src="script.js"></script>
+<script src="chatbot.js"></script>
+<script src="ai.js"></script>
+<script src="knowledge.js"></script>
+</body>
+</html>
+
+
+

@@ -1,0 +1,1220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Costinar - Portfolio Showcase</title>
+<link rel="icon" href="../IMG/Night_Me.jpg" />
+<!-- Bootstrap Icons -->
+<link rel="stylesheet"
+href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+<!-- Devicon -->
+<link rel="stylesheet"
+href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
+
+<style>
+
+/* =========================
+   PORTFOLIO SECTION
+========================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+.kasmir-portfolio-section{
+    position:relative;
+    min-height:100vh;
+    padding:120px 25px;
+    overflow:hidden;
+
+    background:
+    linear-gradient(
+        180deg,
+        #ffffff 0%,
+        #f8f9fb 50%,
+        #ffffff 100%
+    );
+}
+
+/* Elegant diagonal pattern */
+.kasmir-portfolio-section::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    pointer-events:none;
+
+    background:
+    repeating-linear-gradient(
+        -45deg,
+        rgba(0,0,0,.03) 0px,
+        rgba(0,0,0,.03) 1px,
+        transparent 1px,
+        transparent 28px
+    );
+}
+
+/* Large graduation-style decorative circles */
+.kasmir-portfolio-section::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    pointer-events:none;
+
+    background:
+        radial-gradient(
+            circle at 10% 20%,
+            rgba(0,0,0,.035) 0,
+            rgba(0,0,0,.035) 220px,
+            transparent 221px
+        ),
+
+        radial-gradient(
+            circle at 90% 80%,
+            rgba(0,0,0,.025) 0,
+            rgba(0,0,0,.025) 300px,
+            transparent 301px
+        );
+}
+
+/* =========================
+   HEADER
+========================= */
+
+.portfolio-header{
+    text-align:center;
+    max-width:800px;
+    margin:0 auto 50px;
+}
+
+.kasmir-showcase-title{
+    color:#000000;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    text-align:center;
+    font-size:clamp(2rem,4vw,3rem);
+    font-weight:700;
+    margin-bottom:15px;
+}
+
+.kasmir-showcase-subtitle{
+    color:#333333be;
+    line-height:1.5;
+        font-family:Verdana, Geneva, Tahoma, sans-serif;
+    font-size:1rem;
+    text-align:center;
+    max-width:700px;
+    margin:auto;
+}
+
+/* =========================
+   TABS
+========================= */
+
+.kasmir-tabs{
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:15px;
+    margin-bottom:50px;
+}
+
+.kasmir-tab-btn{
+    border:none;
+    cursor:pointer;
+    color:#000000;
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.164);
+    min-width:240px;
+    padding:10px 24px;
+    border-radius:12px;
+    border:1px solid #00000038;
+    transition:.3s;
+    margin-top: 15px;
+    font-size:1rem;
+    font-weight:600;
+}
+
+.kasmir-tab-btn i{
+    margin-right:8px;
+}
+
+.kasmir-tab-btn:hover,
+.kasmir-tab-btn.active{
+          color:#000000;
+          box-shadow:0 0 10px rgba(255,255,255,.3);
+          box-shadow: 0 0 6px rgba(0, 0, 0, 0.164);
+
+    background:linear-gradient(
+        135deg,
+        
+        #a0a0a0
+    );
+}
+
+/* =========================
+   TAB CONTENT
+========================= */
+
+.kasmir-tab-content{
+    display:none;
+}
+
+.kasmir-tab-content.active{
+    display:block;
+
+}
+
+/* =========================
+   PROJECT GRID
+========================= */
+
+.kasmir-portfolio-grid{
+    display:grid;
+    gap:25px;
+    max-width:1200px;
+    margin:auto;
+
+    grid-template-columns:
+    repeat(auto-fit,minmax(320px,1fr));
+}
+
+/* =========================
+   PROJECT CARD
+========================= */
+
+.kasmir-project-card{
+    background:rgb(255, 255, 255);
+    border:1px solid rgba(0, 0, 0, 0.411);
+    border-radius:16px;
+    overflow:hidden;
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.575);
+
+    display:flex;
+    flex-direction:column;
+    transition:.3s;
+}
+
+.kasmir-project-card:hover{
+    transform:translateY(-8px);
+
+    box-shadow:
+    0 0 20px rgba(0, 0, 0, 0.35);
+}
+
+.kasmir-project-card img{
+    width:100%;
+    height:220px;
+    object-fit:cover;
+    transition:.4s;
+}
+
+.kasmir-project-card:hover img{
+    transform:scale(1.05);
+}
+
+.kasmir-project-card h3{
+    color:#000000;
+        font-family:Verdana, Geneva, Tahoma, sans-serif;
+
+    padding:20px 20px 10px;
+    text-align:left;
+}
+
+.kasmir-project-card p{
+    color:#000000be;
+        font-family:Verdana, Geneva, Tahoma, sans-serif;
+  font-size:.9rem;
+    text-align:left;
+    padding:0 20px;
+    line-height:1.3;
+    flex:1;
+}
+
+.kasmir-project-footer{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:10px;
+    padding:20px;
+}
+
+.kasmir-demo-link{
+    color:#208fff;
+    text-decoration:none;
+    font-weight:600;
+}
+
+.kasmir-demo-link:hover{
+    color:#0079e2;
+}
+
+.kasmir-details-btn{
+    cursor:pointer;
+    border:none;
+    color:white;
+    padding:10px 14px;
+    border-radius:8px;
+    background:#0b6ef6;
+    transition:.3s;
+}
+
+.kasmir-details-btn:hover{
+    background:#0050b6;
+}
+
+/* =========================
+   CERTIFICATES
+========================= */
+
+.kasmir-portfolio-grid-cert{
+    display:grid;
+    gap:25px;
+    max-width:1200px;
+    margin:auto;
+    cursor:pointer;
+
+    grid-template-columns:
+    repeat(auto-fit,minmax(300px,1fr));
+}
+
+.certificate-wrapper{
+    position:relative;
+    cursor:pointer;
+}
+
+.kasmir-certificate-card img{
+  
+    width:100%;
+    box-shadow:0 4px 15px rgba(0, 0, 0, 0.39);
+    height:240px;
+    object-fit:cover;
+    border-radius:14px;
+    transition:.3s;
+}
+
+.kasmir-certificate-card:hover img{
+    filter:brightness(.7);
+}
+
+.view-overlay{
+    position:absolute;
+    inset:0;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    opacity:0;
+    color:white;
+    font-weight:700;
+
+    transition:.3s;
+}
+
+.certificate-wrapper:hover .view-overlay{
+    opacity:1;
+}
+.html:hover{
+    box-shadow:0 0 25px rgba(228,77,38,.45);
+}
+
+.css:hover{
+    box-shadow:0 0 25px rgba(41,101,241,.45);
+}
+
+.js:hover{
+    box-shadow:0 0 25px rgba(240,219,79,.55);
+}
+
+.cpp:hover{
+    box-shadow:0 0 25px rgba(0,89,156,.45);
+}
+
+.git:hover{
+    box-shadow:0 0 25px rgba(241,80,47,.45);
+}
+
+.bootstrap:hover{
+    box-shadow:0 0 25px rgba(121,82,179,.45);
+}
+
+.photoshop:hover{
+    box-shadow:0 0 25px rgba(49,168,255,.50);
+}
+
+.figma:hover{
+    box-shadow:0 0 25px rgba(162,89,255,.45);
+}
+/* =========================
+   MODAL
+========================= */
+
+.modal{
+    display:none;
+    position:fixed;
+    inset:0;
+    z-index:9999;
+
+    background:rgba(0,0,0,.85);
+
+    justify-content:center;
+    align-items:center;
+}
+
+.modal-image-wrapper{
+    position:relative;
+    width:90%;
+    max-width:900px;
+}
+
+.modal-content{
+    width:100%;
+    border-radius:15px;
+}
+
+.close{
+    position:absolute;
+    top:-50px;
+    right:0;
+
+    border:none;
+    background:none;
+
+    color:white;
+    cursor:pointer;
+
+    font-size:2rem;
+}
+
+/* =========================
+   SEE MORE BUTTON
+========================= */
+
+.kasmir-toggle-btn{
+    display:block;
+    margin:40px auto 0;
+
+    cursor:pointer;
+
+    color:rgb(0, 0, 0);
+    background:none;
+
+    border:1px solid rgba(0, 0, 0, 0.3);
+
+    padding:12px 28px;
+    border-radius:10px;
+
+    transition:.3s;
+}
+
+.kasmir-toggle-btn:hover{
+    background:#47474770;
+}
+
+/* =========================
+   TECH STACK
+========================= */
+
+.kasmir-stack-grid{
+    display:grid;
+    gap:20px;
+
+    width:100%;
+    max-width:1200px;
+    margin:auto;
+
+    grid-template-columns:repeat(4,1fr);
+}
+
+@media(max-width:768px){
+
+    .kasmir-stack-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+}
+@media(max-width:480px){
+
+    .kasmir-stack-grid{
+        grid-template-columns:1fr;
+    }
+#kasmir-tools{
+    width:100%;
+}
+}
+.kasmir-stack-card{
+    background:#fff;
+    border:1px solid rgba(0,0,0,.12);
+    border-radius:16px;
+    min-height:180px;
+    
+    box-shadow:0 0 6px rgba(0,0,0,.15);
+    width:100%;
+    height:160px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    transition:all .35s ease;
+}
+
+.kasmir-stack-card:hover{
+    transform:translateY(-8px) scale(1.03);
+}
+
+.kasmir-stack-card i{
+    font-size:3rem;
+    margin-bottom:15px;
+}
+
+.kasmir-stack-card h3{
+    color:#000000;
+    font-size:.9rem;
+            font-family:Verdana, Geneva, Tahoma, sans-serif;
+
+}
+
+/* =========================
+   FIGMA
+========================= */
+
+.figma-logo{
+    width:45px;
+    height:45px;
+    margin-bottom:15px;
+}
+
+/* =========================
+   BRAND COLORS
+========================= */
+
+.html i{
+    color:#e44d26;
+}
+
+.css i{
+    color:#2965f1;
+}
+
+.js i{
+    color:#f0db4f;
+}
+
+.cpp i{
+    color:#00599c;
+}
+
+.git i{
+    color:#f1502f;
+}
+
+.bootstrap i{
+    color:#7952b3;
+}
+
+.photoshop i{
+    color:#31a8ff;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media(max-width:768px){
+
+    .kasmir-project-footer{
+        flex-direction:column;
+        align-items:flex-start;
+    }
+
+    .kasmir-tab-btn{
+        width:100%;
+    }
+
+}
+
+@media(max-width:480px){
+
+    .kasmir-portfolio-section{
+        padding:80px 15px;
+    }
+
+    .kasmir-project-card img{
+        height:190px;
+    }
+
+    .kasmir-certificate-card img{
+        height:190px;
+    }
+
+}
+/* =========================
+   BACK BUTTON
+========================= */
+
+.kasmir-back-btn{
+    position:fixed;
+    top:20px;
+    left:20px;
+
+    width:48px;
+    height:48px;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    text-decoration:none;
+
+    background:rgba(255,255,255,.95);
+    border:1px solid rgba(0,0,0,.12);
+    border-radius:50%;
+
+    box-shadow:
+        0 4px 12px rgba(0,0,0,.12);
+
+    z-index:9999;
+
+    transition:all .3s ease;
+}
+
+.kasmir-back-btn i{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    font-size:1.5rem;
+    line-height:1;
+    color:#000;
+
+    transition:all .3s ease;
+}
+
+
+/* Tablet */
+@media (max-width:768px){
+    .kasmir-back-btn{
+        width:44px;
+        height:44px;
+        top:18px;
+        left:18px;
+    }
+
+    .kasmir-back-btn i{
+        font-size:1.4rem;
+    }
+}
+
+/* Mobile */
+@media (max-width:480px){
+    .kasmir-back-btn{
+        width:40px;
+        height:40px;
+        top:15px;
+        left:15px;
+    }
+
+    .kasmir-back-btn i{
+        font-size:1.3rem;
+    }
+}
+</style>
+
+</head>
+
+<body>
+
+<!-- =========================
+     PORTFOLIO SECTION
+========================= -->
+
+<!-- SKILLS & TOOLS SECTION -->
+<section id="projects-section" class="kasmir-portfolio-section container">
+  <h2 class="kasmir-showcase-title">Portfolio Showcase</h2>
+  <p class="kasmir-showcase-subtitle">
+    Explore my journey through projects, certifications, and technical expertise. Each section represents a milestone in my continuous learning path.
+  </p>
+
+
+  
+  <a href="index.html" class="kasmir-back-btn">
+    <i class="bi bi-arrow-return-left"></i>
+</a>
+
+
+  <center>
+    <div class="kasmir-tabs">
+      <button class="kasmir-tab-btn" data-tab="kasmir-projects">
+        <i class="bi bi-kanban"></i> Projects
+      </button>
+      <button class="kasmir-tab-btn" data-tab="kasmir-certificates">
+        <i class="bi bi-award"></i> Certificates
+      </button>
+      <button class="kasmir-tab-btn active" data-tab="kasmir-tools">
+        <i class="bi bi-code-slash"></i> Tech Stack | Tools
+      </button>
+    </div>
+  </center>
+
+  <!-- Projects -->
+  <div id="kasmir-projects" class="kasmir-tab-content">
+    <center>
+      <div class="kasmir-portfolio-grid" id="kasmir-project-grid">
+
+        <!-- All 12 Projects -->
+        <!-- Repeat: Project Cards -->
+        <div class="kasmir-project-card">
+          <img src="../src/assets/Projects (3).png" alt="Lost & Found Site">
+          <h3>Lost & Found Site</h3>
+          <p>FEU Lost & Found is a web platform for students and staff to report, track, and recover lost items on campus...</p>
+          <br>
+          <div class="kasmir-project-footer">
+            <a href="https://kasmirco.github.io/Lost-Found-System/index.html" class="kasmir-demo-link" target="_blank">
+              <i class="bi bi-box-arrow-up-right"></i> Live Demo
+            </a>
+            <button class="kasmir-details-btn" onclick="window.location.href='L&F.html'">
+              Details <i class="bi bi-arrow-right-circle"></i>
+            </button>
+          </div>
+        </div>
+
+        <div class="kasmir-project-card">
+          <img src="../src/assets/Projects (4).png" alt="Love Effects">
+          <h3>Love Effects</h3>
+          <p>A website where you can surprise your loved ones with customizable messages and animations full of love...</p>
+          <br>
+          <div class="kasmir-project-footer">
+            <a href="https://kasmirco.github.io/Anniversary_Moments_Project/" class="kasmir-demo-link" target="_blank">
+              <i class="bi bi-box-arrow-up-right"></i> Live Demo
+            </a>
+            <button class="kasmir-details-btn" onclick="window.location.href='Love-Effects.html'">
+              Details <i class="bi bi-arrow-right-circle"></i>
+            </button>
+          </div>
+        </div>
+
+        <div class="kasmir-project-card">
+          <img src="../src/assets/Projects (5).png" alt="AV Travel Agency">
+          <h3>AV Travel Agency</h3>
+          <p>A travel agency website that lets users book trips, view guided packages, and plan personalized itineraries...</p>
+          <br>
+          <div class="kasmir-project-footer">
+            <a href="https://kasmirco.github.io/AV-Project/" class="kasmir-demo-link" target="_blank">
+              <i class="bi bi-box-arrow-up-right"></i> Live Demo
+            </a>
+            <button class="kasmir-details-btn" onclick="window.location.href='AV.html'">
+              Details <i class="bi bi-arrow-right-circle"></i>
+            </button>
+          </div>
+        </div>
+
+        <div class="kasmir-project-card">
+          <img src="../src/assets/Projects (7).png" alt="Finance Business Tool">
+          <h3>Oak Drive Business Tool</h3>
+          <p>Oak Drive Business Tool helps manage financial data with an easy interface for tracking expenses, and visualizing trends...</p>
+          <br>
+          <div class="kasmir-project-footer">
+            <a href="https://kasmirco.github.io/Finance_Business_Tool/" class="kasmir-demo-link" target="_blank">
+              <i class="bi bi-box-arrow-up-right"></i> Live Demo
+            </a>
+            <button class="kasmir-details-btn" onclick="window.location.href='CFBT.html'">
+              Details <i class="bi bi-arrow-right-circle"></i>
+            </button>
+          </div>
+        </div>
+
+        <div class="kasmir-project-card">
+          <img src="../src/assets/Projects (8).png" alt="CostNet.ph">
+          <h3>CostNet.ph</h3>
+          <p>Introduces 'C' coin, offering a secure platform for digital transactions and crypto investments with an intuitive user interface...</p>
+          <br>
+          <div class="kasmir-project-footer">
+            <a href="https://kasmirco.github.io/CostNet.ph/" class="kasmir-demo-link" target="_blank">
+              <i class="bi bi-box-arrow-up-right"></i> Live Demo
+            </a>
+            <button class="kasmir-details-btn" onclick="window.location.href='CostNet.html'">
+              Details <i class="bi bi-arrow-right-circle"></i>
+            </button>
+          </div>
+        </div>
+
+        <div class="kasmir-project-card">
+          <img src="../src/assets/Projects (9).png" alt="Panda App">
+          <h3>Panda App</h3>
+          <p>Redesigns the FoodPanda app with an intuitive layout, faster navigation, and a seamless ordering experience.</p>
+          <br>
+          <div class="kasmir-project-footer">
+            <a href="https://www.figma.com/proto/4YwLYSyTZQtmECabRUCSVq/Foodpanda--new-interface-?node-id=0-1&t=SlFdgjG99bjKIsTU-1" class="kasmir-demo-link" target="_blank">
+              <i class="bi bi-box-arrow-up-right"></i> Live Demo
+            </a>
+            <button class="kasmir-details-btn" onclick="window.location.href='Panda.html'">
+              Details <i class="bi bi-arrow-right-circle"></i>
+            </button>
+          </div>
+        </div>
+
+        <div class="kasmir-project-card">
+          <img src="../src/assets/Projects (10).png" alt="Course Portfolio">
+          <h3>Course Portfolio</h3>
+          <p>Highlights key projects, essays, and research from the English specialization, emphasizing language, and literature...</p>
+          <br>
+          <div class="kasmir-project-footer">
+            <a href="https://kasmirco.github.io/CourseProjectPortfolio/" class="kasmir-demo-link" target="_blank">
+              <i class="bi bi-box-arrow-up-right"></i> Live Demo
+            </a>
+            <button class="kasmir-details-btn" onclick="window.location.href='Digital-portfolio.html'">
+              Details <i class="bi bi-arrow-right-circle"></i>
+            </button>
+          </div>
+        </div>
+
+        <div class="kasmir-project-card">
+          <img src="../src/assets/Projects (2).png" alt="Lost & Found App">
+          <h3>Lost & Found App</h3>
+          <p>Allows FEU students and staff to report and 
+            find lost items on campus, ensuring a quick and efficient 
+            return process...</p>
+          <br>
+          <div class="kasmir-project-footer">
+            <a href="https://www.figma.com/proto/Zhanj3uouTXK5RNUepJN8q/Final-Project-IT004-FEUTECH--Copy-?node-id=0-1&t=Qb0GK4cCoGpA5xRy-1" class="kasmir-demo-link" target="_blank">
+              <i class="bi bi-box-arrow-up-right"></i> Live Demo
+            </a>
+            <button class="kasmir-details-btn" onclick="window.location.href='Lostandfound.html'">
+              Details <i class="bi bi-arrow-right-circle"></i>
+            </button>
+          </div>
+        </div>
+
+        <div class="kasmir-project-card">
+          <img src="../src/assets/Projects (11).png" alt="Kasmirco Clo.">
+          <h3>Kasmirco & Co.</h3>
+          <p>Offers a curated collection of stylish, high-quality 
+            apparel with a focus on modern design, comfort, and 
+            sustainable materials...</p>
+          <br>
+          <div class="kasmir-project-footer">
+            <a href="https://kasmirco.github.io/KasmirCo-BusinessSite/" class="kasmir-demo-link" target="_blank">
+              <i class="bi bi-box-arrow-up-right"></i> Live Demo
+            </a>
+            <button class="kasmir-details-btn" onclick="window.location.href='kasmirclo.html'">
+              Details <i class="bi bi-arrow-right-circle"></i>
+            </button>
+          </div>
+        </div>
+
+        <div class="kasmir-project-card">
+          <img src="../src/assets/Projects (6).png" alt="Adventura Viajeros">
+          <h3>Adventura Viajeros</h3>
+          <p>Adventura Viajeros is a travel agency website that 
+            lets users book trips, explore destinations, discover guided 
+            packages, and craft personalized itineraries...</p>
+          <br>
+          <div class="kasmir-project-footer">
+            <a href="https://kasmirco.github.io/Adventura_Viajero_TravelAgency/" class="kasmir-demo-link" target="_blank">
+              <i class="bi bi-box-arrow-up-right"></i> Live Demo
+            </a>
+            <button class="kasmir-details-btn" onclick="window.location.href='adventura.html'">
+              Details <i class="bi bi-arrow-right-circle"></i>
+            </button>
+          </div>
+        </div>
+
+        <div class="kasmir-project-card">
+          <img src="../src/assets/Projects (12).png" alt="Responsive Web Portfolio">
+          <h3>Responsive Web Portfolio</h3>
+          <p>Showcases a sleek, responsive design using only HTML and CSS, with a focus on clean structure and seamless navigation...</p>
+          <br>
+          <div class="kasmir-project-footer">
+            <a href="https://kasmirco.github.io/Resume_USING_HTMLandCSS/" class="kasmir-demo-link" target="_blank">
+              <i class="bi bi-box-arrow-up-right"></i> Live Demo
+            </a>
+            <button class="kasmir-details-btn" onclick="window.location.href='portfolio.html'">
+              Details <i class="bi bi-arrow-right-circle"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </center>
+
+  <button class="kasmir-toggle-btn" id="kasmir-toggle-projects">See More</button>
+  </div>
+
+  <!-- Certificates -->
+  <div id="kasmir-certificates" class="kasmir-tab-content">
+    <center>
+      <div class="kasmir-portfolio-grid-cert" id="kasmir-cert-grid">
+        <div class="kasmir-certificate-card"><img src="../src/assets/cert.jpg" alt="cert-1" onclick="openModal(this.src)"></div>
+        <div class="kasmir-certificate-card"><img src="../src/assets/cert (1).jpg" alt="cert-1" onclick="openModal(this.src)"></div>
+        <div class="kasmir-certificate-card"><img src="../src/assets/cert (2).jpg" alt="cert-1" onclick="openModal(this.src)"></div>
+        <div class="kasmir-certificate-card"><img src="../src/assets/cert (3).jpg" alt="cert-1" onclick="openModal(this.src)"></div>
+        <div class="kasmir-certificate-card"><img src="../src/assets/cert (4).jpg" alt="cert-1" onclick="openModal(this.src)"></div>
+        <div class="kasmir-certificate-card"><img src="../src/assets/cert (5).jpg" alt="cert-1" onclick="openModal(this.src)"></div>
+        <div class="kasmir-certificate-card"><img src="../src/assets/cert (6).jpg" alt="cert-1" onclick="openModal(this.src)"></div>
+        <div class="kasmir-certificate-card"><img src="../src/assets/cert (7).jpg" alt="cert-1" onclick="openModal(this.src)"></div>
+        <div class="kasmir-certificate-card"><img src="../src/assets/cert (8).jpg" alt="cert-1" onclick="openModal(this.src)"></div>
+        <div class="kasmir-certificate-card"><img src="../src/assets/cert (9).jpg" alt="cert-1" onclick="openModal(this.src)"></div>
+      </div>
+    </center>
+    <button class="kasmir-toggle-btn" id="kasmir-toggle-certificates">See More</button>
+  </div>
+
+
+<!-- =========================
+     TECH STACK | TOOLS
+========================= -->
+
+<div id="kasmir-tools" class="kasmir-tab-content active">
+
+    <div class="kasmir-stack-grid">
+
+        <!-- HTML -->
+        <div class="kasmir-stack-card html">
+            <i class="devicon-html5-plain colored"></i>
+            <h3>HTML5</h3>
+        </div>
+
+        <!-- CSS -->
+        <div class="kasmir-stack-card css">
+            <i class="devicon-css3-plain colored"></i>
+            <h3>CSS3</h3>
+        </div>
+
+        <!-- JavaScript -->
+        <div class="kasmir-stack-card js">
+            <i class="devicon-javascript-plain colored"></i>
+            <h3>JavaScript</h3>
+        </div>
+
+        <!-- C++ -->
+        <div class="kasmir-stack-card cpp">
+            <i class="devicon-cplusplus-plain colored"></i>
+            <h3>C++</h3>
+        </div>
+
+        <!-- Figma -->
+        <div class="kasmir-stack-card figma">
+            <img
+                src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/Figma-logo.svg/500px-Figma-logo.svg.png?20250625151003"
+                alt="Figma Logo"
+                class="figma-logo"
+            >
+            <h3>Figma</h3>
+        </div>
+
+        <!-- Git & GitHub -->
+        <div class="kasmir-stack-card git">
+            <i class="devicon-git-plain colored"></i>
+            <h3>Git &amp; GitHub</h3>
+        </div>
+
+        <!-- Bootstrap -->
+        <div class="kasmir-stack-card bootstrap">
+            <i class="devicon-bootstrap-plain colored"></i>
+            <h3>Bootstrap</h3>
+        </div>
+
+        <!-- Photoshop -->
+        <div class="kasmir-stack-card photoshop">
+            <i class="devicon-photoshop-plain colored"></i>
+            <h3>Adobe Photoshop</h3>
+        </div>
+
+    </div>
+
+</div>
+</section>
+
+<!-- =========================
+     IMAGE MODAL
+========================= -->
+
+<div id="imageModal" class="modal">
+  <div class="modal-backdrop" onclick="closeModal()"></div>
+
+  <div class="modal-image-wrapper">
+    
+    <button class="close" onclick="closeModal()">✖</button>
+
+    <img id="modalImage" class="modal-content" alt="cert-1" onclick="openModal(this.src)">ificate Preview">
+
+  </div>
+</div>
+
+<script>
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    /* =========================
+       TAB SWITCHING
+    ========================= */
+
+    const tabButtons = document.querySelectorAll(".kasmir-tab-btn");
+    const tabContents = document.querySelectorAll(".kasmir-tab-content");
+
+    tabButtons.forEach(button => {
+
+        button.addEventListener("click", () => {
+
+            tabButtons.forEach(btn =>
+                btn.classList.remove("active")
+            );
+
+            tabContents.forEach(content =>
+                content.classList.remove("active")
+            );
+
+            button.classList.add("active");
+
+            const target =
+                document.getElementById(button.dataset.tab);
+
+            if (target) {
+                target.classList.add("active");
+            }
+
+        });
+
+    });
+
+
+    /* =========================
+       PROJECTS SHOW MORE
+    ========================= */
+
+    const projectGrid =
+        document.getElementById("kasmir-project-grid");
+
+    const projectCards =
+        projectGrid ?
+        projectGrid.querySelectorAll(".kasmir-project-card")
+        : [];
+
+    const projectBtn =
+        document.getElementById("kasmir-toggle-projects");
+
+    let projectsExpanded = false;
+
+    function updateProjects() {
+
+        projectCards.forEach((card, index) => {
+
+            if (projectsExpanded || index < 6) {
+                card.style.display = "flex";
+            } else {
+                card.style.display = "none";
+            }
+
+        });
+
+        if (projectBtn) {
+            projectBtn.textContent =
+                projectsExpanded
+                ? "See Less"
+                : "See More";
+        }
+
+    }
+
+    if (projectBtn) {
+
+        projectBtn.addEventListener("click", () => {
+
+            projectsExpanded = !projectsExpanded;
+
+            updateProjects();
+
+        });
+
+        updateProjects();
+    }
+
+
+    /* =========================
+       CERTIFICATES SHOW MORE
+    ========================= */
+
+    const certGrid =
+        document.getElementById("kasmir-cert-grid");
+
+    const certCards =
+        certGrid ?
+        certGrid.querySelectorAll(".kasmir-certificate-card")
+        : [];
+
+    const certBtn =
+        document.getElementById("kasmir-toggle-certificates");
+
+    let certificatesExpanded = false;
+
+    function updateCertificates() {
+
+        certCards.forEach((card, index) => {
+
+            if (certificatesExpanded || index < 6) {
+                card.style.display = "block";
+            } else {
+                card.style.display = "none";
+            }
+
+        });
+
+        if (certBtn) {
+
+            certBtn.textContent =
+                certificatesExpanded
+                ? "See Less"
+                : "See More";
+
+        }
+
+    }
+
+    if (certBtn) {
+
+        certBtn.addEventListener("click", () => {
+
+            certificatesExpanded =
+                !certificatesExpanded;
+
+            updateCertificates();
+
+        });
+
+        updateCertificates();
+
+    }
+
+});
+
+
+/* =========================
+   CERTIFICATE MODAL
+========================= */
+
+function openModal(imageSrc) {
+  const modal = document.getElementById("imageModal");
+  const modalImage = document.getElementById("modalImage");
+
+  modal.style.display = "flex";
+  modalImage.src = imageSrc;
+
+  document.body.style.overflow = "hidden"; // prevent background scroll
+}
+
+function closeModal() {
+  const modal = document.getElementById("imageModal");
+  const modalImage = document.getElementById("modalImage");
+
+  modal.style.display = "none";
+  modalImage.src = "";
+
+  document.body.style.overflow = "auto";
+}
+
+
+/* =========================
+   CLOSE MODAL OUTSIDE CLICK
+========================= */
+
+window.addEventListener("click", event => {
+
+    const modal =
+        document.getElementById("imageModal");
+
+    if (!modal) return;
+
+    if (event.target === modal) {
+
+        closeModal();
+
+    }
+
+});
+
+
+/* =========================
+   ESC KEY CLOSE MODAL
+========================= */
+
+document.addEventListener("keydown", event => {
+
+    if (event.key === "Escape") {
+
+        closeModal();
+
+    }
+
+});
+
+
+/* =========================
+   SMOOTH HASH SCROLL
+========================= */
+
+window.addEventListener("load", () => {
+
+    const hash = window.location.hash;
+
+    if (!hash) return;
+
+    const target =
+        document.querySelector(hash);
+
+    if (target) {
+
+        setTimeout(() => {
+
+            target.scrollIntoView({
+
+                behavior: "smooth",
+                block: "start"
+
+            });
+
+        }, 200);
+
+    }
+
+});
+
+
+/* =========================
+   NAVIGATION SCROLL
+========================= */
+
+document
+.querySelectorAll('a[href^="#"]')
+.forEach(link => {
+
+    link.addEventListener("click", function(e) {
+
+        const targetId =
+            this.getAttribute("href");
+
+        if (!targetId) return;
+
+        const target =
+            document.querySelector(targetId);
+
+        if (!target) return;
+
+        e.preventDefault();
+
+        target.scrollIntoView({
+
+            behavior: "smooth",
+            block: "start"
+
+        });
+
+    });
+
+});
+
+</script>
+
+</body>
+</html>

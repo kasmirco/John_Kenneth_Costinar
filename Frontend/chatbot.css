@@ -1,0 +1,409 @@
+/* ==========================================
+   COSTI AI CHATBOT
+========================================== */
+
+.chatbot{
+    position:fixed;
+    bottom:95px;
+    right:30px;
+    width:370px;
+    height:600px;
+
+    display:flex;
+    flex-direction:column;
+
+    background:rgba(20,20,20,.92);
+    backdrop-filter:blur(25px);
+
+    border:1px solid rgba(255,255,255,.08);
+    border-radius:22px;
+
+    box-shadow:
+        0 15px 60px rgba(0,0,0,.45);
+
+    overflow:hidden;
+
+    z-index:9999;
+
+    opacity:0;
+    visibility:hidden;
+
+    transform:translateY(25px) scale(.96);
+
+    transition:
+        opacity .35s,
+        transform .35s,
+        visibility .35s;
+}
+
+/* OPEN */
+
+.chatbot.show{
+
+    opacity:1;
+    visibility:visible;
+
+    transform:translateY(0) scale(1);
+
+}
+
+/* ==========================================
+HEADER
+========================================== */
+
+.chatbot-header{
+
+    height:78px;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    padding:0 22px;
+
+    background:#1a1a1a;
+
+    border-bottom:1px solid rgba(255,255,255,.05);
+
+}
+
+.chatbot-profile{
+
+    display:flex;
+    align-items:center;
+    gap:14px;
+
+}
+
+.chatbot-avatar{
+
+    width:48px;
+    height:48px;
+
+    border-radius:50%;
+
+    background:#ff8c42;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    font-size:18px;
+    font-weight:700;
+
+    color:white;
+
+}
+
+.chatbot-info h3{
+
+    color:white;
+    font-size:16px;
+    font-weight:600;
+
+}
+
+.status{
+
+    display:flex;
+    align-items:center;
+
+    gap:6px;
+
+    color:#9d9d9d;
+
+    font-size:12px;
+
+    margin-top:2px;
+
+}
+
+.status-dot{
+
+    width:8px;
+    height:8px;
+
+    border-radius:50%;
+
+    background:#35d46b;
+
+}
+
+#closeChat{
+
+    width:40px;
+    height:40px;
+
+    border:none;
+
+    border-radius:12px;
+
+    background:transparent;
+
+    color:white;
+
+    cursor:pointer;
+
+    transition:.25s;
+
+}
+
+#closeChat:hover{
+
+    background:#2c2c2c;
+
+}
+
+/* ==========================================
+BODY
+========================================== */
+
+.chatbot-body{
+
+    flex:1;
+
+    padding:18px;
+
+    overflow-y:auto;
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:14px;
+
+    scroll-behavior:smooth;
+
+}
+
+/* Scrollbar */
+
+.chatbot-body::-webkit-scrollbar{
+
+    width:6px;
+
+}
+
+.chatbot-body::-webkit-scrollbar-thumb{
+
+    background:#333;
+
+    border-radius:20px;
+
+}
+
+/* ==========================================
+MESSAGES
+========================================== */
+
+.bot-message,
+.user-message{
+
+    padding:14px 16px;
+
+    border-radius:18px;
+
+    line-height:1.7;
+
+    font-size:14px;
+
+    animation:fadeUp .25s;
+
+    word-wrap:break-word;
+
+    max-width:82%;
+
+}
+
+.bot-message{
+
+    align-self:flex-start;
+
+    background:#252525;
+
+    color:white;
+
+    border-bottom-left-radius:6px;
+
+}
+
+.user-message{
+
+    align-self:flex-end;
+
+    background:#ff8c42;
+
+    color:white;
+
+    border-bottom-right-radius:6px;
+
+}
+
+/* ==========================================
+SUGGESTIONS
+========================================== */
+
+.chat-suggestions{
+
+    display:flex;
+
+    gap:8px;
+
+    overflow-x:auto;
+
+    padding:12px 16px;
+
+    border-top:1px solid rgba(255,255,255,.05);
+
+    background:#181818;
+
+}
+
+.chat-suggestions::-webkit-scrollbar{
+
+    display:none;
+
+}
+
+.suggestion-btn{
+
+    white-space:nowrap;
+
+    border:none;
+
+    background:#262626;
+
+    color:white;
+
+    border-radius:30px;
+
+    padding:9px 14px;
+
+    cursor:pointer;
+
+    transition:.25s;
+
+    font-size:13px;
+
+}
+
+.suggestion-btn:hover{
+
+    background:#ff8c42;
+
+}
+
+/* ==========================================
+FOOTER
+========================================== */
+
+.chatbot-footer{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    padding:16px;
+
+    background:#1a1a1a;
+
+    border-top:1px solid rgba(255,255,255,.05);
+
+}
+
+#userInput{
+
+    flex:1;
+
+    background:#272727;
+
+    color:white;
+
+    border:none;
+
+    outline:none;
+
+    border-radius:15px;
+
+    padding:14px 16px;
+
+    font-size:14px;
+
+}
+
+#userInput::placeholder{
+
+    color:#888;
+
+}
+
+#sendBtn{
+
+    width:52px;
+
+    height:52px;
+
+    border:none;
+
+    border-radius:15px;
+
+    background:#ff8c42;
+
+    color:white;
+
+    cursor:pointer;
+
+    transition:.25s;
+
+}
+
+#sendBtn:hover{
+
+    transform:scale(1.06);
+
+}
+
+/* ==========================================
+ANIMATION
+========================================== */
+
+@keyframes fadeUp{
+
+    from{
+
+        opacity:0;
+        transform:translateY(10px);
+
+    }
+
+    to{
+
+        opacity:1;
+        transform:translateY(0);
+
+    }
+
+}
+
+/* ==========================================
+MOBILE
+========================================== */
+
+@media(max-width:768px){
+
+.chatbot{
+
+    left:15px;
+    right:15px;
+
+    width:auto;
+
+    height:72vh;
+
+    bottom:90px;
+
+}
+
+}

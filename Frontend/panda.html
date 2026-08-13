@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Panda</title>
+    <link rel="icon" href="../src/assets/nav-logo.png" />
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+  <style>
+body.kasmir-body{
+    margin-top:2rem;
+    font-family:'Segoe UI',sans-serif;
+
+    background:
+    linear-gradient(
+        180deg,
+        #ffffff 0%,
+        #f8f9fb 50%,
+        #ffffff 100%
+    );
+
+    color:#000;
+    padding:2rem;
+}
+
+.kasmir-container{
+    width:100%;
+    max-width:1200px;
+    margin:0 auto;
+
+    background:#fff;
+    border:1px solid rgba(0,0,0,.12);
+    border-radius:16px;
+
+    box-shadow:0 0 6px rgba(0,0,0,.15);
+
+    padding:clamp(20px, 4vw, 35px);
+
+    box-sizing:border-box;
+    overflow:hidden;
+}
+
+    .kasmir-header {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.9rem;
+      color: #aaa;
+      margin-bottom: 1.5rem;
+    }
+
+.kasmir-back{
+    text-decoration:none;
+    color:#000;
+
+    background:#fff;
+
+    border:1px solid rgba(0,0,0,.12);
+    border-radius:10px;
+
+    padding:8px 14px;
+
+    box-shadow:0 0 6px rgba(0,0,0,.15);
+
+    transition:.3s;
+}
+
+.kasmir-back:hover{
+    transform:translateY(-2px);
+}
+
+.kasmir-intro-wrap{
+    display:grid;
+    grid-template-columns:minmax(0, 1fr) minmax(280px, 400px);
+    gap:clamp(24px, 4vw, 40px);
+    align-items:start;
+    margin-bottom:2rem;
+    width:100%;
+}
+
+.kasmir-text-content{
+    min-width:0;
+    width:100%;
+}
+
+.kasmir-title{
+    font-size:clamp(1.6rem, 3.5vw, 2.2rem);
+    color:#111827;
+    margin:0 0 0.5rem;
+    line-height:1.2;
+    overflow-wrap:anywhere;
+}
+
+.kasmir-description{
+    width:100%;
+    max-width:600px;
+    margin:0;
+    font-size:clamp(0.9rem, 1.5vw, 1rem);
+    line-height:1.6;
+    text-align:justify;
+    overflow-wrap:anywhere;
+}
+
+.kasmir-feature-box ul {
+  list-style: none;
+  padding-left: 1rem;
+  text-align: justify; /* <- Justify feature list */
+}
+
+.kasmir-image-content{
+    width:100%;
+    min-width:0;
+    display:flex;
+    justify-content:center;
+    align-items:flex-start;
+    text-align:center;
+}
+.kasmir-image-content img{
+    display:block;
+    width:100%;
+    max-width:400px;
+    height:auto;
+    aspect-ratio:auto;
+    object-fit:contain;
+
+    border-radius:14px;
+
+    border:1px solid rgba(0,0,0,.12);
+
+    box-shadow:0 0 6px rgba(0,0,0,.15);
+}
+
+.kasmir-feature-box{
+    background:#fff;
+
+    border:1px solid rgba(0,0,0,.12);
+    border-radius:16px;
+
+    box-shadow:0 0 6px rgba(0,0,0,.15);
+
+    padding:20px;
+
+    width:100%;
+    min-width:0;
+    height:auto;
+
+    margin-top:0;
+
+    box-sizing:border-box;
+}
+
+    .kasmir-feature-box h4 {
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+      color: #6cc3d5;
+    }
+
+    .kasmir-feature-box ul {
+      list-style: none;
+      padding-left: 1rem;
+    }
+
+    .kasmir-feature-box li::before {
+      content: "• ";
+      color: #6cc3d5;
+      margin-right: 0.4rem;
+    }
+
+.kasmir-buttons{
+    display:flex;
+    flex-wrap:wrap;
+    gap:clamp(10px, 2vw, 1rem);
+    margin:2rem 0;
+    width:100%;
+}
+
+.demo-btn,
+.github-btn{
+    text-decoration:none;
+    padding:10px clamp(14px, 2vw, 20px);
+    border-radius:8px;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:0.5rem;
+    font-weight:500;
+    white-space:nowrap;
+    min-width:0;
+    max-width:100%;
+}
+/* =========================================
+   KASMIR BUTTONS - MOBILE FIX
+   ========================================= */
+
+@media (max-width:767px){
+
+    .kasmir-buttons{
+        display:flex !important;
+        flex-direction:column !important;
+        flex-wrap:nowrap !important;
+        align-items:stretch !important;
+        width:100% !important;
+        gap:12px !important;
+        margin:1.5rem 0 !important;
+    }
+
+    .kasmir-buttons .demo-btn,
+    .kasmir-buttons .github-btn{
+        display:flex !important;
+        width:100% !important;
+        max-width:100% !important;
+        min-width:0 !important;
+        flex:0 0 auto !important;
+        box-sizing:border-box !important;
+
+        align-items:center !important;
+        justify-content:center !important;
+
+        padding:11px 16px !important;
+        white-space:nowrap !important;
+    }
+
+}
+    .demo-btn {
+      background: linear-gradient(135deg, #4e5fff, #4cb8c4);
+      color: #fff;
+    }
+
+    .github-btn {
+      background: linear-gradient(135deg, #2f2e41, #6c1e7f);
+      color: #fff;
+    }
+
+    .kasmir-tech-used h4 {
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .tech-badges {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin-bottom: 2rem;
+    }
+
+    .badge {
+      padding: 6px 12px;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: #fff;
+    }
+
+    .badge.html { background: #e96228; }
+    .badge.css { background: #2965f1; }
+    .badge.js { background: #f0db4f; color: #000; }
+    .badge.sql { background: #00618a; }
+    .badge.firebase { background: #ffcb2b; color: #000; }
+
+.kasmir-tech-features-wrap{
+    display:grid;
+    grid-template-columns:repeat(2, minmax(0, 1fr));
+    gap:clamp(20px, 3vw, 2rem);
+    align-items:start;
+    margin-bottom:2rem;
+    width:100%;
+}
+
+.kasmir-tech-used,
+.kasmir-feature-box{
+    flex:1 1 0;
+    min-width:0;
+    width:100%;
+}
+.kasmir-tech-used{
+    background:#fff;
+
+    border:1px solid rgba(0,0,0,.12);
+    border-radius:16px;
+
+    box-shadow:0 0 6px rgba(0,0,0,.15);
+
+    padding:20px;
+
+    width:100%;
+    min-width:0;
+    box-sizing:border-box;
+}
+/* =========================================
+   KASMIR PROJECT RESPONSIVE
+   TABLET
+   ========================================= */
+
+@media (max-width:992px){
+
+    .kasmir-container{
+        padding:28px;
+    }
+
+    .kasmir-intro-wrap{
+        grid-template-columns:minmax(0, 1fr) minmax(240px, 320px);
+        gap:28px;
+    }
+
+    .kasmir-image-content img{
+        max-width:320px;
+    }
+
+    .kasmir-tech-features-wrap{
+        grid-template-columns:1fr;
+    }
+
+}
+
+@media (max-width:768px){
+
+    .kasmir-container{
+        padding:24px;
+        border-radius:14px;
+    }
+
+    .kasmir-intro-wrap{
+        grid-template-columns:1fr;
+        gap:24px;
+    }
+
+    .kasmir-text-content{
+        width:100%;
+    }
+
+    .kasmir-description{
+        max-width:none;
+    }
+
+    .kasmir-image-content{
+        width:100%;
+        justify-content:center;
+    }
+
+    .kasmir-image-content img{
+        width:100%;
+        max-width:400px;
+    }
+
+    .kasmir-buttons{
+        width:100%;
+    }
+
+}
+@media (max-width:576px){
+
+    .kasmir-container{
+        padding:20px;
+        border-radius:12px;
+    }
+
+    .kasmir-header{
+        gap:8px;
+        margin-bottom:1.2rem;
+        flex-wrap:wrap;
+    }
+
+    .kasmir-back{
+        padding:7px 12px;
+        border-radius:9px;
+    }
+
+    .kasmir-intro-wrap{
+        gap:20px;
+        margin-bottom:1.5rem;
+    }
+
+    .kasmir-title{
+        font-size:clamp(1.5rem, 7vw, 1.9rem);
+    }
+
+    .kasmir-description{
+        font-size:0.92rem;
+        line-height:1.6;
+    }
+
+    .kasmir-image-content img{
+        width:100%;
+        max-width:100%;
+    }
+
+    .kasmir-buttons{
+        display:grid;
+        grid-template-columns:1fr;
+        gap:10px;
+        margin:1.5rem 0;
+    }
+
+    .demo-btn,
+    .github-btn{
+        width:100%;
+        padding:11px 16px;
+    }
+
+    .kasmir-tech-features-wrap{
+        grid-template-columns:1fr;
+        gap:16px;
+    }
+
+    .kasmir-tech-used,
+    .kasmir-feature-box{
+        padding:16px;
+    }
+
+}
+@media (max-width:375px){
+
+    .kasmir-container{
+        padding:16px;
+    }
+
+    .kasmir-title{
+        font-size:1.4rem;
+    }
+
+    .kasmir-description{
+        font-size:0.88rem;
+    }
+
+    .kasmir-feature-box,
+    .kasmir-tech-used{
+        padding:14px;
+    }
+
+    .tech-badges{
+        gap:6px;
+    }
+
+    .badge{
+        padding:5px 10px;
+        font-size:0.78rem;
+    }
+
+}
+
+  </style>
+</head>
+<body class="kasmir-body">
+  <div class="kasmir-container">
+    <div class="kasmir-header">
+      <a href="Project.html" class="kasmir-back"><i class="bi bi-arrow-left"></i> Back</a>
+      <span>Projects > <strong>Panda App</strong></span>
+    </div>
+
+    <div class="kasmir-intro-wrap">
+      <div class="kasmir-text-content">
+        <h1 class="kasmir-title">Panda App</h1>
+        <p class="kasmir-description">
+        The redesigned FoodPanda app focuses on enhancing user experience with a clean, intuitive layout, faster navigation, and a smoother food ordering process. Built with usability in mind, the new design streamlines browsing, ordering, and tracking meals, making food delivery more convenient and enjoyable for users.
+        </p>
+      </div>
+      <div class="kasmir-image-content">
+        <img src="../src/assets/Projects (9).png" alt="Finance Business Tool" />
+      </div>
+    </div>
+    <div class="kasmir-buttons">
+      <a href="https://www.figma.com/proto/4YwLYSyTZQtmECabRUCSVq/Foodpanda--new-interface-?node-id=116-13&t=sntap3hzgTMPLw9S-1" target="_blank" class="demo-btn">
+        <i class="bi bi-box-arrow-up-right"></i> Live Demo
+      </a>
+      <a href="https://www.figma.com/design/4YwLYSyTZQtmECabRUCSVq/Foodpanda--new-interface-?node-id=116-13&m=dev&t=sntap3hzgTMPLw9S-1" target="_blank" class="github-btn">
+<img src="https://boost.space/wp-content/uploads/2025/02/figma.png" alt="Figma" width="16" height="16" style="vertical-align: middle;"> Figma
+      </a>
+    </div>
+
+<!-- Add this after the buttons -->
+<div class="kasmir-tech-features-wrap">
+  <div class="kasmir-tech-used">
+    <h4><i class="bi bi-code-slash"></i> Tools Used</h4>
+    <div class="tech-badges">
+      <span class="badge html">Figma</span>
+    </div>
+  </div>
+
+  <div class="kasmir-feature-box">
+    <h4><i class="bi bi-stars"></i> Key Features</h4>
+    <ul>
+      <li><b>Simplified Layout:</b>  Cleaner design for effortless browsing.</li>
+      <li><b>Quick Navigation:</b>  Faster access to favorite restaurants and meals.</li>
+      <li><b>Seamless Ordering:</b>  Smooth, step-by-step checkout experience.</li>
+    </ul>
+  </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,1980 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="John Kenneth Costinar - Blog"
+    >
+
+    <title>John Kenneth Costinar - Blog</title>
+
+    <link
+        rel="icon"
+        href="../IMG/Night_Me.jpg"
+    >
+
+    <!-- Bootstrap Icons -->
+    <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    >
+
+    <style>
+
+        /* =====================================================
+           RESET
+           ===================================================== */
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+        }
+
+
+        html{
+            scroll-behavior:smooth;
+        }
+
+
+        body{
+            min-height:100vh;
+
+            font-family:Inter, Arial, sans-serif;
+
+            background:
+                linear-gradient(
+                    180deg,
+                    #ffffff 0%,
+                    #f8f9fb 50%,
+                    #ffffff 100%
+                );
+
+            color:#000;
+
+            line-height:1.6;
+
+            overflow-x:hidden;
+
+            transition:
+                background .3s ease,
+                color .3s ease;
+        }
+
+
+        button,
+        a{
+            font-family:inherit;
+        }
+
+
+        button{
+            border:none;
+        }
+
+
+        a{
+            color:inherit;
+        }
+
+
+        img{
+            max-width:100%;
+            height:auto;
+            display:block;
+        }
+
+
+        /* =====================================================
+           PAGE
+           ===================================================== */
+
+        .blog-page{
+            width:100%;
+            min-height:100vh;
+
+            padding:
+                clamp(20px, 4vw, 60px)
+                clamp(16px, 4vw, 30px);
+        }
+
+
+        .blog-container{
+            width:100%;
+            max-width:1200px;
+
+            margin:0 auto;
+        }
+
+
+        /* =====================================================
+           TOP NAVIGATION
+           ===================================================== */
+
+        .blog-topbar{
+            display:flex;
+            align-items:center;
+            justify-content:space-between;
+
+            gap:20px;
+
+            margin-bottom:
+                clamp(30px, 5vw, 55px);
+        }
+
+
+        .blog-back{
+            display:inline-flex;
+            align-items:center;
+            justify-content:center;
+
+            gap:7px;
+
+            padding:9px 14px;
+
+            border:1px solid rgba(0,0,0,.12);
+
+            border-radius:10px;
+
+            background:#fff;
+
+            color:#000;
+
+            text-decoration:none;
+
+            font-size:14px;
+            font-weight:600;
+
+            box-shadow:
+                0 0 6px rgba(0,0,0,.15);
+
+            transition:
+                transform .25s ease,
+                box-shadow .25s ease,
+                background .25s ease;
+        }
+
+
+        .blog-back:hover{
+            transform:translateY(-2px);
+
+            box-shadow:
+                0 5px 15px rgba(0,0,0,.12);
+        }
+
+
+        .blog-top-actions{
+            display:flex;
+            align-items:center;
+
+            gap:10px;
+        }
+
+
+        /* =====================================================
+           THEME BUTTON
+           ===================================================== */
+
+        .theme-toggle{
+            width:40px;
+            height:40px;
+
+            display:flex;
+            align-items:center;
+            justify-content:center;
+
+            border:1px solid rgba(0,0,0,.12);
+
+            border-radius:50%;
+
+            background:#fff;
+
+            color:#000;
+
+            cursor:pointer;
+
+            box-shadow:
+                0 0 6px rgba(0,0,0,.12);
+
+            transition:
+                transform .25s ease,
+                background .25s ease,
+                color .25s ease,
+                box-shadow .25s ease;
+        }
+
+
+        .theme-toggle:hover{
+            transform:translateY(-2px);
+
+            box-shadow:
+                0 5px 15px rgba(0,0,0,.14);
+        }
+
+
+        .theme-toggle i{
+            font-size:16px;
+        }
+
+
+        /* =====================================================
+           HERO
+           ===================================================== */
+
+        .blog-hero{
+            text-align:center;
+
+            max-width:850px;
+
+            margin:
+                0 auto
+                clamp(35px, 6vw, 65px);
+        }
+
+
+        .blog-label{
+            display:inline-flex;
+            align-items:center;
+
+            gap:7px;
+
+            margin-bottom:12px;
+
+            color:#777;
+
+            font-size:11px;
+            font-weight:700;
+
+            letter-spacing:.13em;
+        }
+
+
+        .blog-label i{
+            font-size:14px;
+        }
+
+
+        .blog-title{
+            margin-bottom:15px;
+
+            color:#111;
+
+            font-size:
+                clamp(
+                    2rem,
+                    5vw,
+                    4rem
+                );
+
+            line-height:1.08;
+
+            letter-spacing:-.045em;
+
+            font-weight:700;
+        }
+
+
+        .blog-subtitle{
+            max-width:700px;
+
+            margin:0 auto;
+
+            color:#666;
+
+            font-size:
+                clamp(
+                    .9rem,
+                    1.5vw,
+                    1.05rem
+                );
+
+            line-height:1.7;
+        }
+
+
+        /* =====================================================
+           FEATURED ARTICLE
+           ===================================================== */
+
+        .featured-post{
+            position:relative;
+
+            display:grid;
+
+            grid-template-columns:
+                minmax(0, 1.4fr)
+                minmax(240px, .6fr);
+
+            gap:35px;
+
+            margin-bottom:35px;
+
+            padding:
+                clamp(25px, 5vw, 45px);
+
+            border-radius:20px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #111 0%,
+                    #1c1c1c 55%,
+                    #050505 100%
+                );
+
+            color:#fff;
+
+            overflow:hidden;
+
+            box-shadow:
+                0 15px 40px rgba(0,0,0,.17);
+        }
+
+
+        .featured-post::before{
+            content:"";
+
+            position:absolute;
+
+            width:280px;
+            height:280px;
+
+            right:-100px;
+            top:-130px;
+
+            border-radius:50%;
+
+            background:
+                rgba(255,255,255,.045);
+        }
+
+
+        .featured-post::after{
+            content:"";
+
+            position:absolute;
+
+            width:180px;
+            height:180px;
+
+            right:100px;
+            bottom:-140px;
+
+            border-radius:50%;
+
+            background:
+                rgba(255,255,255,.035);
+        }
+
+
+        .featured-content{
+            position:relative;
+
+            z-index:2;
+
+            min-width:0;
+        }
+
+
+        .featured-label{
+            display:inline-block;
+
+            margin-bottom:12px;
+
+            color:#aaa;
+
+            font-size:10px;
+            font-weight:700;
+
+            letter-spacing:.13em;
+        }
+
+
+        .featured-title{
+            margin-bottom:14px;
+
+            font-size:
+                clamp(
+                    1.5rem,
+                    3vw,
+                    2.3rem
+                );
+
+            line-height:1.2;
+
+            letter-spacing:-.025em;
+        }
+
+
+        .featured-description{
+            max-width:700px;
+
+            color:#ccc;
+
+            font-size:
+                clamp(
+                    .88rem,
+                    1.4vw,
+                    1rem
+                );
+
+            line-height:1.75;
+        }
+
+
+        .featured-meta{
+            display:flex;
+            align-items:center;
+            flex-wrap:wrap;
+
+            gap:15px;
+
+            margin-top:22px;
+
+            color:#aaa;
+
+            font-size:12px;
+        }
+
+
+        .featured-meta span{
+            display:inline-flex;
+            align-items:center;
+
+            gap:6px;
+        }
+
+
+        .featured-side{
+            position:relative;
+
+            z-index:2;
+
+            display:flex;
+            align-items:center;
+            justify-content:center;
+        }
+
+
+        .featured-icon{
+            width:
+                clamp(
+                    120px,
+                    15vw,
+                    190px
+                );
+
+            aspect-ratio:1;
+
+            display:flex;
+            align-items:center;
+            justify-content:center;
+
+            border:1px solid rgba(255,255,255,.1);
+
+            border-radius:50%;
+
+            background:
+                rgba(255,255,255,.035);
+
+            color:#fff;
+
+            font-size:
+                clamp(
+                    40px,
+                    6vw,
+                    70px
+                );
+        }
+
+
+        /* =====================================================
+           SECTION HEADER
+           ===================================================== */
+
+        .section-heading{
+            display:flex;
+            align-items:end;
+            justify-content:space-between;
+
+            gap:20px;
+
+            margin-bottom:20px;
+        }
+
+
+        .section-heading h2{
+            color:#111;
+
+            font-size:
+                clamp(
+                    1.3rem,
+                    2.5vw,
+                    1.8rem
+                );
+
+            line-height:1.2;
+        }
+
+
+        .section-heading p{
+            color:#777;
+
+            font-size:13px;
+        }
+
+
+        /* =====================================================
+           BLOG GRID
+           ===================================================== */
+
+        .blog-grid{
+            display:grid;
+
+            grid-template-columns:
+                repeat(
+                    3,
+                    minmax(0,1fr)
+                );
+
+            gap:20px;
+
+            margin-bottom:45px;
+        }
+
+
+        /* =====================================================
+           BLOG CARD
+           ===================================================== */
+
+        .blog-card{
+            min-width:0;
+
+            display:flex;
+            flex-direction:column;
+
+            padding:
+                clamp(18px, 3vw, 24px);
+
+            border:1px solid rgba(0,0,0,.1);
+
+            border-radius:16px;
+
+            background:#fff;
+
+            box-shadow:
+                0 0 6px rgba(0,0,0,.09);
+
+            transition:
+                transform .25s ease,
+                box-shadow .25s ease,
+                border-color .25s ease;
+        }
+
+
+        .blog-card:hover{
+            transform:translateY(-4px);
+
+            border-color:
+                rgba(0,0,0,.18);
+
+            box-shadow:
+                0 10px 25px rgba(0,0,0,.12);
+        }
+
+
+        .card-top{
+            display:flex;
+            align-items:center;
+            justify-content:space-between;
+
+            gap:12px;
+
+            margin-bottom:18px;
+        }
+
+
+        .card-icon{
+            width:40px;
+            height:40px;
+
+            flex:0 0 40px;
+
+            display:flex;
+            align-items:center;
+            justify-content:center;
+
+            border-radius:11px;
+
+            background:#f2f2f2;
+
+            color:#111;
+
+            font-size:17px;
+        }
+
+
+        .card-category{
+            color:#777;
+
+            font-size:9px;
+            font-weight:700;
+
+            letter-spacing:.11em;
+
+            text-align:right;
+        }
+
+
+        .card-title{
+            margin-bottom:10px;
+
+            color:#111;
+
+            font-size:
+                clamp(
+                    1rem,
+                    1.7vw,
+                    1.2rem
+                );
+
+            line-height:1.35;
+        }
+
+
+        .card-description{
+            color:#666;
+
+            font-size:.88rem;
+
+            line-height:1.7;
+        }
+
+
+        .card-footer{
+            display:flex;
+            align-items:center;
+            justify-content:space-between;
+
+            gap:10px;
+
+            margin-top:auto;
+            padding-top:20px;
+
+            color:#777;
+
+            font-size:11px;
+        }
+
+
+        .card-footer span{
+            overflow:hidden;
+
+            white-space:nowrap;
+
+            text-overflow:ellipsis;
+        }
+
+
+        .card-arrow{
+            width:30px;
+            height:30px;
+
+            flex:0 0 30px;
+
+            display:flex;
+            align-items:center;
+            justify-content:center;
+
+            border:1px solid rgba(0,0,0,.1);
+
+            border-radius:50%;
+
+            color:#111;
+
+            transition:
+                transform .25s ease,
+                background .25s ease,
+                color .25s ease;
+        }
+
+
+        .blog-card:hover .card-arrow{
+            transform:
+                translate(2px,-2px);
+
+            background:#111;
+
+            color:#fff;
+        }
+
+
+        /* =====================================================
+           BOTTOM INFO
+           ===================================================== */
+
+        .blog-bottom{
+            display:grid;
+
+            grid-template-columns:
+                repeat(
+                    3,
+                    minmax(0,1fr)
+                );
+
+            gap:18px;
+
+            margin-bottom:45px;
+        }
+
+
+        .info-card{
+            padding:22px;
+
+            border:1px solid rgba(0,0,0,.1);
+
+            border-radius:15px;
+
+            background:#fff;
+
+            box-shadow:
+                0 0 6px rgba(0,0,0,.07);
+        }
+
+
+        .info-card i{
+            display:block;
+
+            margin-bottom:12px;
+
+            color:#111;
+
+            font-size:20px;
+        }
+
+
+        .info-card h3{
+            margin-bottom:6px;
+
+            color:#111;
+
+            font-size:15px;
+        }
+
+
+        .info-card p{
+            color:#777;
+
+            font-size:12px;
+
+            line-height:1.65;
+        }
+
+
+        /* =====================================================
+           FOOTER
+           ===================================================== */
+
+        .blog-footer{
+            display:flex;
+            align-items:center;
+            justify-content:space-between;
+
+            flex-wrap:wrap;
+
+            gap:15px;
+
+            padding-top:25px;
+
+            border-top:
+                1px solid rgba(0,0,0,.08);
+
+            color:#777;
+
+            font-size:12px;
+        }
+
+
+        .blog-footer-name{
+            display:flex;
+            align-items:center;
+
+            gap:7px;
+
+            color:#111;
+
+            font-weight:600;
+        }
+
+
+        /* =====================================================
+           DARK MODE
+           ===================================================== */
+
+        body.dark{
+            background:
+                linear-gradient(
+                    180deg,
+                    #0b0b0b 0%,
+                    #111 50%,
+                    #0b0b0b 100%
+                );
+
+            color:#fff;
+        }
+
+
+        body.dark .blog-back{
+            background:#151515;
+
+            border-color:
+                rgba(255,255,255,.1);
+
+            color:#fff;
+
+            box-shadow:
+                0 0 6px rgba(0,0,0,.35);
+        }
+
+
+        body.dark .theme-toggle{
+            background:#151515;
+
+            border-color:
+                rgba(255,255,255,.1);
+
+            color:#fff;
+        }
+
+
+        body.dark .blog-title,
+        body.dark .section-heading h2{
+            color:#fff;
+        }
+
+
+        body.dark .blog-subtitle{
+            color:#999;
+        }
+
+
+        body.dark .blog-label{
+            color:#888;
+        }
+
+
+        body.dark .blog-card{
+            background:#151515;
+
+            border-color:
+                rgba(255,255,255,.09);
+
+            box-shadow:
+                0 0 8px rgba(0,0,0,.35);
+        }
+
+
+        body.dark .blog-card:hover{
+            border-color:
+                rgba(255,255,255,.17);
+
+            box-shadow:
+                0 10px 25px rgba(0,0,0,.4);
+        }
+
+
+        body.dark .card-icon{
+            background:#222;
+
+            color:#fff;
+        }
+
+
+        body.dark .card-category{
+            color:#888;
+        }
+
+
+        body.dark .card-title{
+            color:#fff;
+        }
+
+
+        body.dark .card-description{
+            color:#999;
+        }
+
+
+        body.dark .card-footer{
+            color:#888;
+        }
+
+
+        body.dark .card-arrow{
+            border-color:
+                rgba(255,255,255,.1);
+
+            color:#fff;
+        }
+
+
+        body.dark .blog-card:hover .card-arrow{
+            background:#fff;
+
+            color:#111;
+        }
+
+
+        body.dark .info-card{
+            background:#151515;
+
+            border-color:
+                rgba(255,255,255,.09);
+
+            box-shadow:
+                0 0 8px rgba(0,0,0,.35);
+        }
+
+
+        body.dark .info-card i,
+        body.dark .info-card h3{
+            color:#fff;
+        }
+
+
+        body.dark .info-card p{
+            color:#999;
+        }
+
+
+        body.dark .blog-footer{
+            border-color:
+                rgba(255,255,255,.09);
+
+            color:#888;
+        }
+
+
+        body.dark .blog-footer-name{
+            color:#fff;
+        }
+
+
+        /* =====================================================
+           TABLET
+           ===================================================== */
+
+        @media (max-width:1024px){
+
+            .blog-page{
+                padding:
+                    30px
+                    24px;
+            }
+
+
+            .featured-post{
+                grid-template-columns:
+                    minmax(0,1fr)
+                    220px;
+
+                gap:25px;
+            }
+
+
+            .blog-grid{
+                grid-template-columns:
+                    repeat(
+                        2,
+                        minmax(0,1fr)
+                    );
+            }
+
+
+            .blog-bottom{
+                grid-template-columns:
+                    repeat(
+                        2,
+                        minmax(0,1fr)
+                    );
+            }
+
+        }
+
+
+        /* =====================================================
+           SMALL TABLET
+           ===================================================== */
+
+        @media (max-width:768px){
+
+            .blog-page{
+                padding:
+                    24px
+                    20px;
+            }
+
+
+            .featured-post{
+                grid-template-columns:1fr;
+
+                gap:25px;
+            }
+
+
+            .featured-side{
+                justify-content:flex-start;
+            }
+
+
+            .featured-icon{
+                width:100px;
+                font-size:40px;
+            }
+
+
+            .blog-grid{
+                grid-template-columns:1fr;
+            }
+
+
+            .blog-bottom{
+                grid-template-columns:1fr;
+            }
+
+        }
+
+
+        /* =====================================================
+           PHONE
+           ===================================================== */
+
+        @media (max-width:576px){
+
+            .blog-page{
+                padding:
+                    18px
+                    16px;
+            }
+
+
+            .blog-topbar{
+                margin-bottom:35px;
+            }
+
+
+            .blog-back{
+                padding:
+                    8px 11px;
+
+                font-size:13px;
+            }
+
+
+            .theme-toggle{
+                width:38px;
+                height:38px;
+            }
+
+
+            .blog-hero{
+                margin-bottom:35px;
+            }
+
+
+            .blog-title{
+                font-size:
+                    clamp(
+                        2rem,
+                        11vw,
+                        2.7rem
+                    );
+            }
+
+
+            .blog-subtitle{
+                font-size:.88rem;
+            }
+
+
+            .featured-post{
+                padding:22px;
+
+                border-radius:16px;
+            }
+
+
+            .featured-title{
+                font-size:1.45rem;
+            }
+
+
+            .featured-description{
+                font-size:.86rem;
+            }
+
+
+            .section-heading{
+                align-items:flex-start;
+
+                flex-direction:column;
+
+                gap:4px;
+            }
+
+
+            .blog-card{
+                padding:19px;
+            }
+
+
+            .blog-footer{
+                flex-direction:column;
+
+                align-items:flex-start;
+            }
+
+        }
+
+
+        /* =====================================================
+           SMALL PHONE
+           ===================================================== */
+
+        @media (max-width:375px){
+
+            .blog-page{
+                padding:
+                    15px 13px;
+            }
+
+
+            .blog-title{
+                font-size:2rem;
+            }
+
+
+            .featured-post{
+                padding:19px;
+            }
+
+
+            .featured-title{
+                font-size:1.3rem;
+            }
+
+
+            .blog-card{
+                padding:16px;
+            }
+
+
+            .card-title{
+                font-size:1rem;
+            }
+
+
+            .card-description{
+                font-size:.83rem;
+            }
+
+        }
+
+
+        /* =====================================================
+           VERY SMALL PHONE
+           ===================================================== */
+
+        @media (max-width:320px){
+
+            .blog-page{
+                padding:
+                    12px 10px;
+            }
+
+
+            .blog-back span{
+                display:none;
+            }
+
+
+            .blog-back{
+                width:38px;
+                height:38px;
+
+                padding:0;
+            }
+
+
+            .blog-title{
+                font-size:1.8rem;
+            }
+
+
+            .featured-post{
+                padding:17px;
+            }
+
+        }
+
+
+        /* =====================================================
+           REDUCED MOTION
+           ===================================================== */
+
+        @media (prefers-reduced-motion:reduce){
+
+            *,
+            *::before,
+            *::after{
+                scroll-behavior:auto !important;
+
+                transition:none !important;
+
+                animation:none !important;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =====================================================
+         BLOG PAGE
+         ===================================================== -->
+
+    <div class="blog-page">
+
+        <div class="blog-container">
+
+
+            <!-- =================================================
+                 TOP BAR
+                 ================================================= -->
+
+            <header class="blog-topbar">
+
+                <a
+                    href="index.html"
+                    class="blog-back"
+                    aria-label="Back to portfolio"
+                >
+
+                    <i class="bi bi-arrow-left"></i>
+
+                    <span>
+                        Back to Portfolio
+                    </span>
+
+                </a>
+
+
+                <div class="blog-top-actions">
+
+                    <button
+                        type="button"
+                        class="theme-toggle"
+                        id="themeToggle"
+                        aria-label="Toggle dark mode"
+                        title="Toggle theme"
+                    >
+
+                        <i
+                            class="bi bi-moon"
+                            id="themeIcon"
+                        ></i>
+
+                    </button>
+
+                </div>
+
+            </header>
+
+
+
+            <!-- =================================================
+                 HERO
+                 ================================================= -->
+
+            <section class="blog-hero">
+
+                <span class="blog-label">
+
+                    <i class="bi bi-journal-text"></i>
+
+                    MY BLOG
+
+                </span>
+
+
+                <h1 class="blog-title">
+
+                    Thoughts, Projects
+                    <br>
+                    &amp; My Journey
+
+                </h1>
+
+
+                <p class="blog-subtitle">
+
+                    A place where I share what I learn,
+                    what I build, and the experiences that
+                    continue to shape my journey in
+                    software development and content creation.
+
+                </p>
+
+            </section>
+
+
+
+            <!-- =================================================
+                 FEATURED POST
+                 ================================================= -->
+
+            <article class="featured-post">
+
+                <div class="featured-content">
+
+                    <span class="featured-label">
+                        FEATURED POST
+                    </span>
+
+
+                    <h2 class="featured-title">
+
+                        Building My Portfolio as an
+                        Aspiring Software Engineer
+
+                    </h2>
+
+
+                    <p class="featured-description">
+
+                        Building my portfolio has been more than
+                        simply putting projects on a webpage.
+                        It has been an ongoing process of improving
+                        how I present my work, organize information,
+                        and build interfaces that remain usable
+                        across different screen sizes.
+
+                    </p>
+
+
+                    <div class="featured-meta">
+
+                        <span>
+                            <i class="bi bi-person"></i>
+                            John Kenneth Costinar
+                        </span>
+
+                        <span>
+                            <i class="bi bi-code-slash"></i>
+                            Development
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="featured-side">
+
+                    <div class="featured-icon">
+
+                        <i class="bi bi-code-slash"></i>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+
+            <!-- =================================================
+                 POSTS
+                 ================================================= -->
+
+            <section>
+
+                <div class="section-heading">
+
+                    <div>
+
+                        <h2>
+                            Latest Posts
+                        </h2>
+
+                    </div>
+
+
+                    <p>
+                        Projects, development &amp; learning
+                    </p>
+
+                </div>
+
+
+
+                <div class="blog-grid">
+
+
+                    <!-- CARD 1 -->
+
+                    <article class="blog-card">
+
+                        <div class="card-top">
+
+                            <span class="card-icon">
+                                <i class="bi bi-phone"></i>
+                            </span>
+
+                            <span class="card-category">
+                                WEB DEVELOPMENT
+                            </span>
+
+                        </div>
+
+
+                        <h3 class="card-title">
+
+                            Making a Website Responsive
+
+                        </h3>
+
+
+                        <p class="card-description">
+
+                            Responsive design is not only about
+                            making elements smaller. A good
+                            responsive layout reorganizes content
+                            so sections, cards, buttons, images,
+                            and typography continue to work
+                            naturally across desktop, tablet,
+                            and mobile.
+
+                        </p>
+
+
+                        <div class="card-footer">
+
+                            <span>
+                                Responsive UI
+                            </span>
+
+ 
+
+                        </div>
+
+                    </article>
+
+
+
+                    <!-- CARD 2 -->
+
+                    <article class="blog-card">
+
+                        <div class="card-top">
+
+                            <span class="card-icon">
+                                <i class="bi bi-airplane"></i>
+                            </span>
+
+                            <span class="card-category">
+                                PROJECT
+                            </span>
+
+                        </div>
+
+
+                        <h3 class="card-title">
+
+                            Designing a Travel Agency Website
+
+                        </h3>
+
+
+                        <p class="card-description">
+
+                            Working on travel-focused web projects
+                            gave me an opportunity to explore
+                            navigation, destination presentation,
+                            tour information, document services,
+                            and visual storytelling while keeping
+                            the interface easy to navigate.
+
+                        </p>
+
+
+                        <div class="card-footer">
+
+                            <span>
+                                Web Design
+                            </span>
+
+ 
+
+                        </div>
+
+                    </article>
+
+
+
+                    <!-- CARD 3 -->
+
+                    <article class="blog-card">
+
+                        <div class="card-top">
+
+                            <span class="card-icon">
+                                <i class="bi bi-box-seam"></i>
+                            </span>
+
+                            <span class="card-category">
+                                PROJECT
+                            </span>
+
+                        </div>
+
+
+                        <h3 class="card-title">
+
+                            From Website to Android WebView
+
+                        </h3>
+
+
+                        <p class="card-description">
+
+                            Turning a web interface into an Android
+                            WebView application introduced a
+                            different set of challenges. Interactive
+                            features, navigation, state updates,
+                            and JavaScript behavior all needed to
+                            work reliably inside the application
+                            environment.
+
+                        </p>
+
+
+                        <div class="card-footer">
+
+                            <span>
+                                Android WebView
+                            </span>
+
+ 
+
+                        </div>
+
+                    </article>
+
+
+
+                    <!-- CARD 4 -->
+
+                    <article class="blog-card">
+
+                        <div class="card-top">
+
+                            <span class="card-icon">
+                                <i class="bi bi-palette"></i>
+                            </span>
+
+                            <span class="card-category">
+                                DESIGN
+                            </span>
+
+                        </div>
+
+
+                        <h3 class="card-title">
+
+                            Keeping a Design Consistent
+
+                        </h3>
+
+
+                        <p class="card-description">
+
+                            One of the most important lessons in
+                            improving a portfolio is knowing when
+                            not to redesign. A responsive update
+                            should preserve the existing visual
+                            identity while fixing spacing,
+                            alignment, overflow, and component
+                            behavior.
+
+                        </p>
+
+
+                        <div class="card-footer">
+
+                            <span>
+                                UI Design
+                            </span>
+
+ 
+
+                        </div>
+
+                    </article>
+
+
+
+                    <!-- CARD 5 -->
+
+                    <article class="blog-card">
+
+                        <div class="card-top">
+
+                            <span class="card-icon">
+                                <i class="bi bi-images"></i>
+                            </span>
+
+                            <span class="card-category">
+                                PROJECT
+                            </span>
+
+                        </div>
+
+
+                        <h3 class="card-title">
+
+                            Building Interactive Web Experiences
+
+                        </h3>
+
+
+                        <p class="card-description">
+
+                            Interactive components such as image
+                            galleries, modal viewers, navigation
+                            menus, buttons, and tracking interfaces
+                            can make a project feel more complete.
+                            The challenge is making those
+                            interactions useful without making
+                            the interface complicated.
+
+                        </p>
+
+
+                        <div class="card-footer">
+
+                            <span>
+                                Interaction
+                            </span>
+
+ 
+
+                        </div>
+
+                    </article>
+
+
+
+                    <!-- CARD 6 -->
+
+                    <article class="blog-card">
+
+                        <div class="card-top">
+
+                            <span class="card-icon">
+                                <i class="bi bi-lightbulb"></i>
+                            </span>
+
+                            <span class="card-category">
+                                LEARNING
+                            </span>
+
+                        </div>
+
+
+                        <h3 class="card-title">
+
+                            What I Continue to Learn
+
+                        </h3>
+
+
+                        <p class="card-description">
+
+                            Every project exposes something new to
+                            improve: responsive layouts, JavaScript
+                            functionality, application integration,
+                            visual hierarchy, accessibility, and
+                            cleaner code. The portfolio is also a
+                            record of that continuous learning
+                            process.
+
+                        </p>
+
+
+                        <div class="card-footer">
+
+                            <span>
+                                Learning
+                            </span>
+
+ 
+
+                        </div>
+
+                    </article>
+
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =================================================
+                 ABOUT THE BLOG
+                 ================================================= -->
+
+            <section class="blog-bottom">
+
+
+                <div class="info-card">
+
+                    <i class="bi bi-code-slash"></i>
+
+                    <h3>
+                        Development
+                    </h3>
+
+                    <p>
+                        Notes about building websites,
+                        applications, responsive interfaces,
+                        and experimenting with different
+                        technologies.
+                    </p>
+
+                </div>
+
+
+                <div class="info-card">
+
+                    <i class="bi bi-folder2-open"></i>
+
+                    <h3>
+                        Projects
+                    </h3>
+
+                    <p>
+                        Behind-the-scenes thoughts about
+                        projects, design decisions,
+                        functionality, and improvements.
+                    </p>
+
+                </div>
+
+
+                <div class="info-card">
+
+                    <i class="bi bi-lightbulb"></i>
+
+                    <h3>
+                        Learning
+                    </h3>
+
+                    <p>
+                        Lessons and observations from
+                        continuously learning and improving
+                        as a developer.
+                    </p>
+
+                </div>
+
+
+            </section>
+
+
+
+            <!-- =================================================
+                 FOOTER
+                 ================================================= -->
+
+            <footer class="blog-footer">
+
+                <div class="blog-footer-name">
+
+                    <i class="bi bi-code-slash"></i>
+
+                    John Kenneth Costinar
+
+                </div>
+
+
+                <span>
+
+                    Aspiring Software Engineer
+                    ·
+                    Content Creator
+
+                </span>
+
+            </footer>
+
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =====================================================
+         JAVASCRIPT
+         ===================================================== -->
+
+    <script>
+
+        /* =====================================================
+           THEME
+           ===================================================== */
+
+        const themeToggle =
+            document.getElementById(
+                "themeToggle"
+            );
+
+        const themeIcon =
+            document.getElementById(
+                "themeIcon"
+            );
+
+
+        /*
+         * Check previously saved theme.
+         */
+
+        const savedTheme =
+            localStorage.getItem(
+                "portfolio-blog-theme"
+            );
+
+
+        if(savedTheme === "dark"){
+
+            document.body.classList.add(
+                "dark"
+            );
+
+            themeIcon.className =
+                "bi bi-sun";
+
+        }
+
+
+        /*
+         * Theme toggle.
+         */
+
+        themeToggle.addEventListener(
+            "click",
+            function(){
+
+                document.body.classList.toggle(
+                    "dark"
+                );
+
+
+                const isDark =
+                    document.body.classList.contains(
+                        "dark"
+                    );
+
+
+                if(isDark){
+
+                    themeIcon.className =
+                        "bi bi-sun";
+
+                    localStorage.setItem(
+                        "portfolio-blog-theme",
+                        "dark"
+                    );
+
+                }else{
+
+                    themeIcon.className =
+                        "bi bi-moon";
+
+                    localStorage.setItem(
+                        "portfolio-blog-theme",
+                        "light"
+                    );
+
+                }
+
+            }
+        );
+
+
+        /* =====================================================
+           KEYBOARD THEME ACCESSIBILITY
+           ===================================================== */
+
+        themeToggle.addEventListener(
+            "keydown",
+            function(event){
+
+                if(
+                    event.key === "Enter" ||
+                    event.key === " "
+                ){
+
+                    event.preventDefault();
+
+                    themeToggle.click();
+
+                }
+
+            }
+        );
+
+
+        /* =====================================================
+           ESCAPE
+           ===================================================== */
+
+        document.addEventListener(
+            "keydown",
+            function(event){
+
+                if(
+                    event.key === "Escape"
+                ){
+
+                    /*
+                     * Keep this available for future
+                     * blog interactions/modals.
+                     */
+
+                    document.activeElement.blur();
+
+                }
+
+            }
+        );
+
+    </script>
+
+</body>
+</html>
